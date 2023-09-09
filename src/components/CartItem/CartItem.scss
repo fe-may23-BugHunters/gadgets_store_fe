@@ -1,0 +1,151 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/breakpoints';
+
+.cartItem {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+  background-color: $color-surface1;
+
+  @include onTablet {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  &__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+
+    &:first-child {
+      justify-content: flex-start;
+    }
+
+    @include onTablet {
+      flex-direction: row;
+      gap: 24px;
+    }
+  }
+
+  &__remove {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 3px;
+
+    background-color: transparent;
+    border: 1px solid transparent;
+    transition:
+      border $effectDuration,
+      transform $effectDuration;
+
+    &:hover {
+      border: 1px solid $color-icons;
+    }
+
+    &:active {
+      transform: $effectScaleBtn;
+    }
+  }
+
+  &__closeIcon {
+    display: block;
+    width: 16px;
+    height: 16px;
+  }
+
+  &__imageBlock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    padding: 7px;
+    box-sizing: border-box;
+  }
+
+  &__image {
+    height: 100%;
+    object-fit: contain;
+    transition: transform $effectDuration;
+
+    &:hover {
+      transform: $effectScaleBtn;
+    }
+  }
+
+  &__title {
+    font-weight: 600;
+    line-height: 150%;
+
+    @include onTablet {
+      max-width: 100%;
+    }
+  }
+
+  &__count {
+    display: flex;
+    flex: 0 0 96px;
+    align-items: center;
+  }
+
+  &__increase,
+  &__decreaseBtn,
+  &__amount {
+    display: block;
+    width: 32px;
+    height: 32px;
+    padding: 8px;
+    color: $color-white;
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  &__amount {
+    line-height: 118%;
+  }
+
+  &__increase,
+  &__decreaseBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid $color-surface2;
+    background-color: $color-surface2;
+    transition: background-color $effectDuration;
+
+    &:hover {
+      background-color: $color-secondary;
+    }
+
+    &:active {
+      background-color: $color-accent;
+    }
+  }
+
+  &__disabled {
+    color: $color-white;
+    background-color: transparent;
+    border: 1px solid $color-elements;
+    cursor: default;
+
+    &:hover {
+      background-color: transparent;
+    }
+
+    &:active {
+      transform: scale(1);
+    }
+  }
+
+  &__price {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 140%;
+  }
+}

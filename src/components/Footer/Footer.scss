@@ -1,0 +1,119 @@
+@import '../../styles/utils/breakpoints';
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+
+.footer {
+  box-sizing: border-box;
+  border-top: 1px solid $color-elements;
+  padding-block: 32px;
+  text-transform: uppercase;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+
+    @include onTablet {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__logo {
+    width: 89px;
+    align-self: flex-start;
+  }
+
+  &__moveUp {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    color: $color-secondary;
+    text-transform: none;
+  }
+
+  &__btn-wrapper {
+    display: flex;
+    width: 32px;
+    height: 32px;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    border: 1px solid $color-icons;
+    background-color: $color-surface2;
+    cursor: pointer;
+    transition: background-color $effectDuration;
+
+    &:hover {
+      background-color: $color-icons;
+    }
+  }
+
+  &__btn {
+    width: 16px;
+    height: 16px;
+  }
+
+  &__footerNav {
+    align-self: flex-start;
+  }
+}
+
+.footerNav {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    gap: 16px;
+
+    @include onTablet {
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 5px;
+    }
+
+    @include onDesktop {
+      gap: 60px;
+    }
+  }
+
+  &__item {
+    list-style-type: none;
+
+    &:not(:first-child) {
+      margin: 0;
+    }
+
+    @include onTablet {
+      &:not(:first-child) {
+        margin: 0;
+        margin-left: 16px;
+      }
+    }
+  }
+
+  &__link {
+    display: block;
+    align-items: center;
+    text-decoration: none;
+    color: $color-white;
+    font-size: 12px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: color $effectDuration;
+
+    &:hover {
+      color: $color-secondary;
+    }
+
+    @include onTablet {
+      line-height: 32px;
+    }
+  }
+}

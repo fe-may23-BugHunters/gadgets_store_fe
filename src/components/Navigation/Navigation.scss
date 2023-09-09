@@ -1,0 +1,54 @@
+@import '/src/styles/utils/mixins';
+@import '/src/styles/utils/variables';
+
+.nav {
+  display: flex;
+
+  &__list {
+    display: none;
+    margin-left: 16px;
+
+    @include onTablet {
+      display: flex;
+      width: 330px;
+      justify-content: space-between;
+      list-style: none;
+      text-transform: uppercase;
+    }
+
+    @include onDesktop {
+      margin-left: 24px;
+      width: 425px;
+    }
+  }
+
+  &__link {
+    display: block;
+    height: 46px;
+
+    font-size: 12px;
+    font-family: 'Mont', sans-serif;
+    font-weight: bold;
+
+    text-decoration: none;
+    line-height: 48px;
+    color: $color-secondary;
+
+    transition: color $effectDuration;
+
+    &:hover {
+      color: $color-white;
+    }
+
+    @include onDesktop {
+      height: 62px;
+      line-height: 64px;
+    }
+  }
+
+  &__link.is-active {
+    color: $color-white;
+
+    border-bottom: 3px solid $color-white;
+  }
+}

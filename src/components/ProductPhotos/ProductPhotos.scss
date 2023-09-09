@@ -1,0 +1,57 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/breakpoints';
+@import '../../styles/utils/extends';
+
+.photos {
+  display: flex;
+  gap: 22px;
+  flex-direction: column;
+
+  @include onTablet {
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  &__photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    max-width: 275px;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    margin-inline: auto;
+
+    @include onTablet {
+      max-width: 450px;
+    }
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    box-sizing: border-box;
+
+    @include onTablet {
+      order: -1;
+      flex-direction: column;
+      justify-content: flex-start;
+      width: 8%;
+      min-width: 40px;
+      max-width: 80px;
+    }
+
+    @include onDesktop {
+      width: 14%;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+@import '../../../styles/utils/breakpoints';
+@import '../../../styles/utils/variables';
+@import '../../../styles/utils/mixins';
+
+.favBtn {
+  width: 48px;
+  height: 40px;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  background-color: $color-surface2;
+  transition:
+    background-color $effectDuration,
+    transform $effectDuration;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $color-icons;
+  }
+
+  &:active {
+    transform: $effectScaleBtn;
+  }
+
+  &--active {
+    background-color: $color-surface1;
+    border: 1px solid $color-icons;
+
+    &:hover {
+      background-color: $color-surface1;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+@import '../../styles/utils/breakpoints';
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  height: 48px;
+  box-sizing: border-box;
+  border-bottom: solid 1px $color-elements;
+
+  background-color: $color-dark;
+
+  &__left {
+    display: flex;
+  }
+
+  @include onDesktop {
+    height: 64px;
+  }
+}

@@ -1,0 +1,42 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/breakpoints';
+
+.photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  max-width: 50px;
+  box-sizing: border-box;
+  aspect-ratio: 1 / 1;
+  border: 1px solid $color-surface2;
+  background-color: transparent;
+  cursor: pointer;
+  transition:
+    transform $effectDuration,
+    border-color $effectDuration;
+
+  &:hover {
+    border-color: $color-icons;
+  }
+
+  &:active {
+    transform: $effectScaleBtn;
+  }
+
+  &--active {
+    border-color: $color-white;
+  }
+
+  @include onTablet {
+    max-width: 100%;
+  }
+
+  &__img {
+    display: block;
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+  }
+}

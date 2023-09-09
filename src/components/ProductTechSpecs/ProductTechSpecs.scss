@@ -1,0 +1,26 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/breakpoints';
+
+.techSpecs {
+  &__title {
+    padding-block-end: 16px;
+    margin-block-end: 30px;
+    color: $color-white;
+    font-size: 20px;
+    font-weight: 700;
+    border-block-end: 1px solid $color-elements;
+
+    @include onTablet {
+      font-size: 22px;
+      line-height: 140%;
+      margin-block-end: 25px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+}

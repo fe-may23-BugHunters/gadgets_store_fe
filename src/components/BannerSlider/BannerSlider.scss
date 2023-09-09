@@ -1,0 +1,81 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/breakpoints';
+
+.bannerSlider {
+  position: relative;
+  box-sizing: border-box;
+  background-color: transparent;
+  user-select: none;
+}
+
+.bannerSlider,
+.bannerSlider__slide {
+  width: 100%;
+  height: 320px;
+
+  @include onTablet {
+    height: 250px;
+  }
+
+  @media (min-width: 720px) {
+    height: 350px;
+  }
+
+  @include onDesktop {
+    height: 400px;
+  }
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  display: none;
+
+  &:hover::after {
+    background-color: $color-icons;
+  }
+
+  &:active::after {
+    background-color: $color-secondary;
+    transform: $effectScaleBtn;
+  }
+
+  @include onTablet {
+    display: flex;
+    margin: 0;
+    top: 0;
+    width: 52px;
+    height: 100%;
+    background: $color-dark;
+  }
+
+  &::after {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 100%;
+    color: $color-white;
+    font-size: 16px;
+    background-color: $color-surface2;
+    transition:
+      background-color $effectDuration,
+      transform $effectDuration;
+  }
+}
+.swiper-button-prev {
+  left: 0;
+  justify-content: flex-start;
+
+  &::after {
+    left: 0;
+  }
+}
+
+.swiper-button-next {
+  right: 0;
+  justify-content: flex-end;
+
+  &::after {
+    right: 0;
+  }
+}

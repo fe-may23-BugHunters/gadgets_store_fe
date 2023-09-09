@@ -1,0 +1,23 @@
+@import '../../styles/utils/variables';
+
+.techSpecsRow {
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  &__param,
+  &__value {
+    font-weight: 600;
+    line-height: 150%;
+  }
+
+  &__param {
+    color: $color-secondary;
+  }
+
+  &__value {
+    color: $color-white;
+  }
+}

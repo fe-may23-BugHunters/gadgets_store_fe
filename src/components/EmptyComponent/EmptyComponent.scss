@@ -1,0 +1,18 @@
+@import '../../styles/utils/breakpoints';
+@import '../../styles/utils/variables';
+
+.noContent {
+  padding-top: 150px;
+  text-align: center;
+  font-size: 22px;
+  line-height: 1.5;
+  color: $color-secondary;
+
+  @include onTablet {
+    padding-top: 250px;
+  }
+
+  @media (orientation: landscape) {
+    padding-top: 200px;
+  }
+}

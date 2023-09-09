@@ -1,0 +1,31 @@
+@import '../../styles/utils/variables';
+
+.likeBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1/1;
+  background-color: $color-surface2;
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  transition:
+    background-color $effectDuration,
+    transform $effectDuration,
+    border-color $effectDuration;
+
+  &--active {
+    background-color: transparent;
+    border-color: $color-elements;
+  }
+
+  &:hover {
+    background-color: $color-icons;
+    border-color: transparent;
+  }
+
+  &:active {
+    transform: $effectScaleBtn;
+  }
+}

@@ -1,0 +1,67 @@
+$desktop-min-width: 1200px;
+$tablet-min-width: 640px;
+$mobile-min-width: 320px;
+
+$header-height-mobile: 48px;
+$header-height-desktop: 64px;
+
+$font-family: 'Mont', sans-serif;
+
+$color-dark: #0f1121;
+$color-white: #f1f2f9;
+$color-surface1: #161827;
+$color-surface2: #323542;
+$color-elements: #3b3e4a;
+$color-icons: #4a4d58;
+$color-secondary: #75767f;
+$color-red: #eb5757;
+$color-green: #27ae60;
+$color-accent: #905bff;
+$color-accent-light: #a378ff;
+
+$effectDuration: 0.3s ease;
+$effectScaleBtn: scale(0.99);
+
+//* Product colors
+$product-black: #4c4c4c;
+$product-green: #aee1cd;
+$product-yellow: #ffe681;
+$product-white: #fbf7f4;
+$product-purple: #b8afe6;
+$product-red: #ba0c2e;
+$product-midnight: #171e27;
+$product-spaceblack: #323233;
+$product-spacegray: #535150;
+$product-blue: #667e97;
+$product-starlight: #d8d4d8;
+$product-midnightgreen: #4e5851;
+$product-gold: #dfccb7;
+$product-silver: #e4e4e2;
+$product-rosegold: #e6c7c2;
+$product-coral: #ee7762;
+$product-pink: #f1b6ac;
+$product-sierrablue: #69abce;
+$product-graphite: #5c5b57;
+$product-skyblue: #6ba1c4;
+
+$product-colors:
+  'black' $product-black,
+  'green' $product-green,
+  'yellow' $product-yellow,
+  'white' $product-white,
+  'purple' $product-purple,
+  'red' $product-red,
+  'midnight' $product-midnight,
+  'spaceblack' $product-spaceblack,
+  'spacegray' $product-spacegray,
+  'blue' $product-blue,
+  'starlight' $product-starlight,
+  'midnightgreen' $product-midnightgreen,
+  'gold' $product-gold,
+  'silver' $product-silver,
+  'rosegold' $product-rosegold,
+  'coral' $product-coral,
+  'pink' $product-pink,
+  'sierrablue' $product-sierrablue,
+  'graphite' $product-graphite,
+  'skyblue' $product-skyblue;

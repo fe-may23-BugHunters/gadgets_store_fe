@@ -1,0 +1,9 @@
+@import '../utils/variables';
+@import '../utils/mixins';
+
+.container {
+  @include contentPaddingInline;
+  width: 100%;
+  margin-inline: auto;
+  box-sizing: border-box;
+}

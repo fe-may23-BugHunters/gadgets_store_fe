@@ -1,0 +1,12 @@
+@import 'utils/reset';
+@import 'utils/normalize';
+@import 'utils/typography';
+@import 'utils/variables';
+
+:root {
+  font-family: $font-family;
+  font-weight: 400;
+  font-size: 14px;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}

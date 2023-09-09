@@ -1,0 +1,14 @@
+@import '../../styles/utils/variables';
+
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: $color-white;
+  background-color: $color-dark;
+  min-height: 100vh;
+
+  &__content {
+    flex-grow: 1;
+  }
+}

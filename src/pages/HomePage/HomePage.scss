@@ -1,0 +1,77 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+
+.home-page {
+  padding-block: 24px;
+
+  @include onTablet {
+    padding-block: 32px;
+  }
+
+  @include onDesktop {
+    padding-block: 56px;
+    padding-left: 32px;
+  }
+
+  &__title {
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.32px;
+    color: $color-white;
+
+    margin-bottom: 24px;
+
+    @include onTablet {
+      margin-bottom: 32px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__slider {
+    margin: 0 auto 56px;
+
+    @include onTablet {
+      margin-bottom: 64px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 80px;
+    }
+  }
+
+  &__new {
+    margin-bottom: 57px;
+
+    @include onTablet {
+      margin-bottom: 64px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 80px;
+    }
+  }
+
+  &__category {
+    margin-bottom: 56px;
+
+    @include onTablet {
+      margin: 64px auto;
+    }
+
+    @include onDesktop {
+      margin: 80px auto;
+    }
+
+    &-title {
+      margin-bottom: 24px;
+
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 140%;
+      color: $color-white;
+    }
+  }
+}

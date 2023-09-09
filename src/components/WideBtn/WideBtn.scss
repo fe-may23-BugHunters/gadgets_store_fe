@@ -1,0 +1,35 @@
+@import '../../styles/utils/variables';
+
+.wideBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  color: $color-white;
+  font-weight: 700;
+  line-height: 100%;
+  border: none;
+  background-color: $color-accent;
+  transition:
+    background-color $effectDuration,
+    transform $effectDuration;
+
+  &--isDoubleTitle.wideBtn--active {
+    background-color: $color-surface2;
+    color: $color-white;
+    transition: background-color $effectDuration;
+
+    &:hover {
+      background-color: $color-icons;
+    }
+  }
+
+  &:hover {
+    background-color: $color-accent-light;
+  }
+
+  &:active {
+    transform: $effectScaleBtn;
+  }
+}

@@ -1,0 +1,86 @@
+@import '../../styles/utils/extends';
+@import '../../styles/utils/breakpoints';
+
+.product {
+  padding-block-start: 25px;
+  padding-block-end: 80px;
+
+  &__breadCrumbs {
+    margin-block-end: 24px;
+
+    @include onTablet {
+      margin-block-end: 40px;
+    }
+  }
+
+  &__btnBack {
+    margin-block-end: 16px;
+  }
+
+  &__title {
+    margin-block-end: 40px;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 128%;
+    letter-spacing: -0.32px;
+  }
+
+  &__content {
+    @extend %gridPage;
+    row-gap: 40px;
+    margin-block-end: 56px;
+
+    @include onTablet {
+      grid-template-rows: repeat(2, auto);
+      row-gap: 64px;
+    }
+
+    @include onDesktop {
+      row-gap: 80px;
+    }
+  }
+
+  &__variants,
+  &__about,
+  &__techSpecs {
+    margin-block-end: 16px;
+
+    @include onDesktop {
+      margin-block-end: 0px;
+    }
+  }
+
+  &__photos,
+  &__variants,
+  &__about,
+  &__techSpecs,
+  &__recommended {
+    grid-column: 1/-1;
+  }
+
+  &__photos {
+    @include onTablet {
+      grid-column: span 7;
+    }
+  }
+
+  &__variants {
+    @include onTablet {
+      grid-column: span 5;
+    }
+  }
+
+  &__photos,
+  &__about {
+    @include onDesktop {
+      grid-column: 1/13;
+    }
+  }
+
+  &__variants,
+  &__techSpecs {
+    @include onDesktop {
+      grid-column: 14/-1;
+    }
+  }
+}

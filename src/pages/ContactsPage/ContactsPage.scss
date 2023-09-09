@@ -1,0 +1,27 @@
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/variables';
+
+.contacts {
+  padding-top: 150px;
+  line-height: 1.5;
+  text-align: center;
+
+  @include onTablet {
+    padding-top: 250px;
+  }
+
+  @media (orientation: landscape) {
+    padding-top: 200px;
+  }
+
+  &__title {
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: $color-secondary;
+  }
+
+  &__message {
+    font-size: 18px;
+    color: $color-secondary;
+  }
+}

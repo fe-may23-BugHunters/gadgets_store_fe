@@ -1,0 +1,75 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/breakpoints';
+
+.tablets {
+  padding-block: 24px;
+
+  @include onTablet {
+    padding-block: 40px;
+  }
+
+  &__breadCrumbs {
+    margin-block-end: 24px;
+
+    @include onTablet {
+      margin-block-end: 40px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 5px;
+    box-sizing: border-box;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 41px;
+    color: $color-white;
+  }
+
+  &__model {
+    margin-bottom: 30px;
+    font-size: 14px;
+    line-height: 21px;
+    color: $color-secondary;
+  }
+
+  &__select__block {
+    display: flex;
+    margin-bottom: 20px;
+  }
+
+  &__select__item {
+    margin-right: 15px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__cards {
+    display: grid;
+    justify-items: center;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    margin-bottom: 30px;
+  }
+
+  &__card {
+    box-sizing: border-box;
+    width: 287px;
+    height: 100%;
+
+    @include onTablet {
+      width: 288px;
+    }
+
+    @include onDesktop {
+      width: 272px;
+    }
+  }
+
+  &__pagination {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 60px;
+  }
+}

@@ -1,0 +1,53 @@
+@import '../../styles/utils/_breakpoints.scss';
+@import '../../styles/utils/variables';
+
+.breadCrumbs {
+  &__list {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+
+    &:not(:last-of-type) {
+      margin-right: 13px;
+    }
+  }
+
+  &__image {
+    object-fit: cover;
+    #arrowRight {
+      fill: $color-icons;
+    }
+  }
+
+  &__link {
+    height: 100%;
+    margin-left: 13px;
+
+    font-size: 12px;
+    font-weight: 700;
+    align-items: center;
+
+    text-transform: capitalize;
+    text-decoration: none;
+    color: $color-white;
+
+    cursor: pointer;
+
+    &--disabled {
+      pointer-events: none;
+      color: $color-secondary;
+    }
+  }
+
+  &__home-link {
+    display: block;
+    line-height: 0;
+  }
+}

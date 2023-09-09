@@ -1,0 +1,90 @@
+@import 'src/styles/utils/variables';
+@import 'src/styles/utils/breakpoints';
+@import 'src/styles/utils/mixins';
+
+.cardContainer {
+  width: 212px;
+  height: 100%;
+  background-color: $color-secondary;
+
+  @include onTablet {
+    width: 237px;
+  }
+
+  @include onDesktop {
+    width: 272px;
+  }
+}
+
+.carouselContainer {
+  width: 100%;
+  padding-top: 64px;
+}
+
+.CarouselSliderContainer {
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+
+  -ms-overflow-style: none; /* Internet Explorer */
+
+  &::-webkit-scrollbar {
+    display: none; /* Webkit browsers */
+  }
+}
+
+.carouselSlider {
+  display: inline-flex;
+  gap: 16px;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carouselArrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  margin-left: 16px;
+  background-color: $color-surface2;
+  border: 1px solid transparent;
+  cursor: pointer;
+
+  &__left--disabled,
+  &__right--disabled {
+    pointer-events: none;
+    background-color: transparent;
+    border-color: $color-surface2;
+
+    svg {
+      fill: $color-icons;
+    }
+  }
+}
+
+.carouselHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.carouselHeader__title {
+  justify-self: left;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 41px;
+  letter-spacing: -0.32px;
+  color: $color-white;
+
+  @include onTablet {
+    font-size: 32px;
+    line-height: 56px;
+    letter-spacing: -0.48px;
+  }
+}
+
+.carouselHeader__arrows {
+  display: flex;
+  justify-self: center;
+  align-self: center;
+  justify-content: flex-end;
+}
