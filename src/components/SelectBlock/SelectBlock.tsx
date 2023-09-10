@@ -29,13 +29,13 @@ export const SelectBlock: React.FC<Props> = ({
   const [isOpen, setIsOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement | null>(null);
 
-  const selectTitle = options.find(option => option.value === value)?.title;
+  const selectTitle = options.find((option) => option.value === value)?.title;
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleOptionClick = (option:number | SortBy) => {
+  const handleOptionClick = (option: number | SortBy) => {
     if (selectName === 'Sort by') {
       onChangeSortBy?.(option as SortBy);
     } else {

@@ -1,0 +1,41 @@
+@import '../../../styles/utils/breakpoints';
+
+.withoutContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 32px;
+  text-align: center;
+
+  &__title {
+    margin-bottom: 32px;
+    font-size: 22px;
+    font-weight: 700;
+
+    @include onTablet {
+      font-size: 24px;
+    }
+  }
+
+  &__icon {
+    width: 150px;
+    margin-bottom: 32px;
+  }
+
+  &__img {
+    width: 100%;
+    object-fit: contain;
+  }
+
+  &__backBtn {
+    display: block;
+    width: 150px;
+    height: 32px;
+
+    @include onTablet {
+      width: 200px;
+      height: 40px;
+    }
+  }
+}

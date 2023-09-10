@@ -14,6 +14,7 @@ import {
   SortBy,
   sortByOptions,
 } from '../../types/product';
+import EmptyImg from '../../assets/icons/emptyList.png';
 
 export const PhonesPage: React.FC = () => {
   const { pathname, onPathChange } = usePathname();
@@ -42,8 +43,12 @@ export const PhonesPage: React.FC = () => {
   useEffect(() => {
     setIsLoading(true);
 
-    getProductsByCategory(+perPage, +perPage * (currentPage - 1),
-      Categories.PHONES, sortBy)
+    getProductsByCategory(
+      +perPage,
+      +perPage * (currentPage - 1),
+      Categories.PHONES,
+      sortBy,
+    )
       .then((response) => {
         setPhones(response.data.rows);
         setTotal(response.data.count);
@@ -64,39 +69,43 @@ export const PhonesPage: React.FC = () => {
         <BreadCrumbs pathname={pathname} onPathChange={onPathChange} />
       </div>
 
-      <div className="accessories__header">
-        <h2 className="accessories__title">Phones</h2>
-        <p className="accessories__model">{total} models</p>
-        {phones.length > 0 && (
-          <>
-            <div className="accessories__select__block">
-              <div className="accessories__select__item">
-                <SelectBlock
-                  selectName="Sort by"
-                  value={sortBy}
-                  options={sortByOptions}
-                  onChangeSortBy={onSortChange}
-                />
-              </div>
-
-              <div className="accessories__select__item">
-                <SelectBlock
-                  selectName="Items on page"
-                  value={perPage}
-                  onChangePerPage={onItemsChange}
-                  options={perPageOptions}
-                />
-              </div>
-            </div>
-          </>
-        )}
-      </div>
-
       <Loader isLoading={isLoading}>
         <EmptyComponent
           data={phones}
-          text={'Cannot get accessories :('}
+          title={'There are no phones yet...'}
+          icon={EmptyImg}
+          btnText={'Back to home'}
         >
+          <div className="accessories__header">
+            <h2 className="accessories__title">Phones</h2>
+
+            <p className="accessories__model">{total} models</p>
+
+            {phones.length > 0 && (
+              <>
+                <div className="accessories__select__block">
+                  <div className="accessories__select__item">
+                    <SelectBlock
+                      selectName="Sort by"
+                      value={sortBy}
+                      options={sortByOptions}
+                      onChangeSortBy={onSortChange}
+                    />
+                  </div>
+
+                  <div className="accessories__select__item">
+                    <SelectBlock
+                      selectName="Items on page"
+                      value={perPage}
+                      onChangePerPage={onItemsChange}
+                      options={perPageOptions}
+                    />
+                  </div>
+                </div>
+              </>
+            )}
+          </div>
+
           <div className="accessories__cards">
             {phones.map((phone) => (
               <div className="accessories__card" key={phone.id}>
