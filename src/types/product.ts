@@ -67,4 +67,4 @@ export const sortByOptions = [
 export interface HeaderLinks {
   title: string;
   path: string;
-};
+}

@@ -16,7 +16,7 @@
   box-sizing: border-box;
   border-bottom: 1px solid $color-surface2;
   background-color: $color-dark;
-  box-shadow: 1px 14px 20px 1px rgba(0,0,0,0.48);
+  box-shadow: 1px 14px 20px 1px rgba(0, 0, 0, 0.48);
 
   @include onDesktop {
     height: $header-height-desktop;
@@ -141,7 +141,8 @@
 
     background-color: transparent;
     border: none;
-    transition: background-color $effectDuration,
+    transition:
+      background-color $effectDuration,
       color $effectDuration;
 
     @extend %navUnderline;

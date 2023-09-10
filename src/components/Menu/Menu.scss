@@ -114,7 +114,8 @@
     line-height: 100%;
     letter-spacing: 0.48px;
     text-transform: uppercase;
-    transition: opacity $effectDuration,
+    transition:
+      opacity $effectDuration,
       color $effectDuration;
 
     @extend %navUnderline;

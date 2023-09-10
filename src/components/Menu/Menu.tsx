@@ -18,30 +18,19 @@ interface Props {
   isAuth: boolean;
 }
 
-export const Menu: React.FC<Props> = ({
-  openMenu,
-  links,
-  isAuth,
-}) => {
-  const {
-    totalFavouritesAmount,
-  } = React.useContext(FavouriteContext);
-  const {
-    totalCartAmount,
-  } = React.useContext(CartContext);
+export const Menu: React.FC<Props> = ({ openMenu, links, isAuth }) => {
+  const { totalFavouritesAmount } = React.useContext(FavouriteContext);
+  const { totalCartAmount } = React.useContext(CartContext);
 
   return (
-    <aside className='menu'>
+    <aside className="menu">
       <div className="menu__top">
         <div className="menu__header">
           <div className="menu__logo">
             <Logo />
           </div>
 
-          <button
-            className="menu__closeBtn"
-            onClick={openMenu}
-          >
+          <button className="menu__closeBtn" onClick={openMenu}>
             <img
               className="menu__closeBtn-img"
               src={CloseImg}
@@ -51,8 +40,8 @@ export const Menu: React.FC<Props> = ({
         </div>
 
         <nav className="menu__nav">
-          <ul className='menu__list'>
-            {links.map(link => (
+          <ul className="menu__list">
+            {links.map((link) => (
               <li className="menu__item" key={link.title}>
                 <NavLink
                   to={link.path}
@@ -78,10 +67,7 @@ export const Menu: React.FC<Props> = ({
       <div className="menu__buttons">
         {isAuth && (
           <div className="menu__btn menu__profile-btn">
-            <HeaderBtn
-              path={'/profile'}
-              icon={ProfileImg}
-            />
+            <HeaderBtn path={'/profile'} icon={ProfileImg} />
           </div>
         )}
 
@@ -94,11 +80,7 @@ export const Menu: React.FC<Props> = ({
         </div>
 
         <div className="menu__btn menu__cart-btn">
-          <HeaderBtn
-            path={'/cart'}
-            badge={totalCartAmount}
-            icon={CartImg}
-          />
+          <HeaderBtn path={'/cart'} badge={totalCartAmount} icon={CartImg} />
         </div>
       </div>
     </aside>

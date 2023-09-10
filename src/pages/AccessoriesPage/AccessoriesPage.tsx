@@ -42,8 +42,12 @@ export const AccessoriesPage: React.FC = () => {
   useEffect(() => {
     setIsLoading(true);
 
-    getProductsByCategory(+perPage, +perPage * (currentPage - 1),
-      Categories.ACCESSORIES, sortBy)
+    getProductsByCategory(
+      +perPage,
+      +perPage * (currentPage - 1),
+      Categories.ACCESSORIES,
+      sortBy,
+    )
       .then((response) => {
         setAccessories(response.data.rows);
         setTotal(response.data.count);
@@ -93,10 +97,7 @@ export const AccessoriesPage: React.FC = () => {
       </div>
 
       <Loader isLoading={isLoading}>
-        <EmptyComponent
-          data={accessories}
-          text={'Cannot get accessories :('}
-        >
+        <EmptyComponent data={accessories} text={'Cannot get accessories :('}>
           <div className="accessories__cards">
             {accessories.map((accessory) => (
               <div className="accessories__card" key={accessory.id}>

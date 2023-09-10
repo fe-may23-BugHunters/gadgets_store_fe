@@ -18,17 +18,9 @@ interface Props {
   isAuth: boolean;
 }
 
-export const Header:React.FC<Props> = ({
-  links,
-  openMenu,
-  isAuth,
-}) => {
-  const {
-    totalFavouritesAmount,
-  } = useContext(FavouriteContext);
-  const {
-    totalCartAmount,
-  } = useContext(CartContext);
+export const Header: React.FC<Props> = ({ links, openMenu, isAuth }) => {
+  const { totalFavouritesAmount } = useContext(FavouriteContext);
+  const { totalCartAmount } = useContext(CartContext);
 
   return (
     <header className="header">
@@ -39,9 +31,9 @@ export const Header:React.FC<Props> = ({
 
         <nav className="header__nav">
           <ul className="header__list">
-            {links.map(link => (
+            {links.map((link) => (
               <li className="header__item" key={link.title}>
-                <NavLink to={link.path} className="header__link" >
+                <NavLink to={link.path} className="header__link">
                   {link.title}
                 </NavLink>
               </li>
@@ -57,24 +49,14 @@ export const Header:React.FC<Props> = ({
       </div>
 
       <div className="header__leftPart">
-        <button
-          className="header__menu-burger"
-          onClick={openMenu}
-        >
-          <img
-            className="headerBtn__menu-img"
-            src={MenuImg}
-            alt="Menu icon"
-          />
+        <button className="header__menu-burger" onClick={openMenu}>
+          <img className="headerBtn__menu-img" src={MenuImg} alt="Menu icon" />
         </button>
 
         <div className="header__buttons">
           {isAuth && (
             <div className="header__profile-btn">
-              <HeaderBtn
-                path={'/profile'}
-                icon={ProfileImg}
-              />
+              <HeaderBtn path={'/profile'} icon={ProfileImg} />
             </div>
           )}
 
@@ -87,11 +69,7 @@ export const Header:React.FC<Props> = ({
           </div>
 
           <div className="header__cart-btn">
-            <HeaderBtn
-              path={'/cart'}
-              badge={totalCartAmount}
-              icon={CartImg}
-            />
+            <HeaderBtn path={'/cart'} badge={totalCartAmount} icon={CartImg} />
           </div>
         </div>
       </div>
