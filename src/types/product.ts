@@ -63,3 +63,8 @@ export const sortByOptions = [
   { title: 'Price', value: SortBy.PRICE },
   { title: 'Capacity', value: SortBy.CAPACITY },
 ];
+
+export interface HeaderLinks {
+  title: string;
+  path: string;
+};

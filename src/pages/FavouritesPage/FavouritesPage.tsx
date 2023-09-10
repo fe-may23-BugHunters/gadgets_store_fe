@@ -9,7 +9,11 @@ import { FavouriteContext } from '../../context/FavouriteContext';
 
 export const FavouritesPage: React.FC = () => {
   const { pathname, onPathChange } = usePathname();
-  const { favouriteProducts, isLoading } = useContext(FavouriteContext);
+  const {
+    favouriteProducts,
+    isLoading,
+    totalFavouritesAmount,
+  } = useContext(FavouriteContext);
 
   return (
     <article className="favourites">
@@ -19,7 +23,7 @@ export const FavouritesPage: React.FC = () => {
 
       <h1 className="favourites__title">Favourites</h1>
 
-      <p className="favourites__count">{favouriteProducts.length} items</p>
+      <p className="favourites__count">{totalFavouritesAmount} items</p>
       <Loader isLoading={isLoading}>
         <EmptyComponent
           data={favouriteProducts}

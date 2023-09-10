@@ -1,20 +1,100 @@
-import React from 'react';
-import { HeaderLogo } from '../HeaderLogo';
-import { Navigation } from '../Navigation';
-import { Buttons } from '../Buttons';
-
+import React, { useContext } from 'react';
+import { NavLink } from 'react-router-dom';
 import './Header.scss';
+import { Logo } from '../Logo';
+import HeartImg from '../../assets/icons/heart.svg';
+import CartImg from '../../assets/icons/Cart.svg';
+import ProfileImg from '../../assets/icons/profile.svg';
+import MenuImg from '../../assets/icons/Menu.svg';
+import { HeaderBtn } from './HeaderBtn';
+import { WideBtn } from '../WideBtn';
+import { FavouriteContext } from '../../context/FavouriteContext';
+import { CartContext } from '../../context/CartContext';
+import { HeaderLinks } from '../../types/product';
 
-export const Header: React.FC = () => {
+interface Props {
+  links: HeaderLinks[];
+  openMenu: () => void;
+  isAuth: boolean;
+}
+
+export const Header:React.FC<Props> = ({
+  links,
+  openMenu,
+  isAuth,
+}) => {
+  const {
+    totalFavouritesAmount,
+  } = useContext(FavouriteContext);
+  const {
+    totalCartAmount,
+  } = useContext(CartContext);
+
   return (
     <header className="header">
-      <div className="header__left">
-        <HeaderLogo />
+      <div className="header__rightPart">
+        <div className="header__logo">
+          <Logo />
+        </div>
 
-        <Navigation />
+        <nav className="header__nav">
+          <ul className="header__list">
+            {links.map(link => (
+              <li className="header__item" key={link.title}>
+                <NavLink to={link.path} className="header__link" >
+                  {link.title}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+
+          {!isAuth && (
+            <div className="header__signInBtn">
+              <WideBtn mainTitle={'Sign In'} />
+            </div>
+          )}
+        </nav>
       </div>
 
-      <Buttons />
+      <div className="header__leftPart">
+        <button
+          className="header__menu-burger"
+          onClick={openMenu}
+        >
+          <img
+            className="headerBtn__menu-img"
+            src={MenuImg}
+            alt="Menu icon"
+          />
+        </button>
+
+        <div className="header__buttons">
+          {isAuth && (
+            <div className="header__profile-btn">
+              <HeaderBtn
+                path={'/profile'}
+                icon={ProfileImg}
+              />
+            </div>
+          )}
+
+          <div className="header__favourite-btn">
+            <HeaderBtn
+              path={'/favourites'}
+              badge={totalFavouritesAmount}
+              icon={HeartImg}
+            />
+          </div>
+
+          <div className="header__cart-btn">
+            <HeaderBtn
+              path={'/cart'}
+              badge={totalCartAmount}
+              icon={CartImg}
+            />
+          </div>
+        </div>
+      </div>
     </header>
   );
 };

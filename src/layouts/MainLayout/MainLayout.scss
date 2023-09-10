@@ -1,12 +1,19 @@
 @import '../../styles/utils/variables';
+@import '../../styles/utils/breakpoints';
 
 .page {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-height: 100vh;
+  padding-top: $header-height-mobile;
   color: $color-white;
   background-color: $color-dark;
-  min-height: 100vh;
+  overflow: hidden;
+
+  @include onDesktop {
+    padding-top: $header-height-desktop;
+  }
 
   &__content {
     flex-grow: 1;
