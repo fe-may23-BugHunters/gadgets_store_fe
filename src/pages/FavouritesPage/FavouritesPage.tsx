@@ -10,8 +10,11 @@ import FavouritesImg from '../../assets/icons/favourites.png';
 
 export const FavouritesPage: React.FC = () => {
   const { pathname, onPathChange } = usePathname();
-  const { favouriteProducts, isLoading, totalFavouritesAmount }
-    = useContext(FavouriteContext);
+  const {
+    favouriteProducts,
+    isLoading,
+    totalFavouritesAmount,
+  } = useContext(FavouriteContext);
 
   return (
     <article className="favourites">
@@ -21,7 +24,8 @@ export const FavouritesPage: React.FC = () => {
 
       <Loader isLoading={isLoading}>
         <EmptyComponent
-          data={favouriteProducts}
+          // data={favouriteProducts}
+          data={null}
           title={'You have no favorites yet...'}
           icon={FavouritesImg}
         >

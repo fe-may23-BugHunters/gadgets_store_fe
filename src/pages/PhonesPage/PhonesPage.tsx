@@ -71,7 +71,8 @@ export const PhonesPage: React.FC = () => {
 
       <Loader isLoading={isLoading}>
         <EmptyComponent
-          data={phones}
+          // data={phones}
+          data={null}
           title={'There are no phones yet...'}
           icon={EmptyImg}
           btnText={'Back to home'}

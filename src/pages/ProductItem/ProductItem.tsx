@@ -81,7 +81,8 @@ export const ProductItem: React.FC = () => {
     return (
       <div className="noProduct">
         <EmptyComponent
-          data={product}
+          // data={product}
+          data={null}
           title={'Cannot get product...'}
           icon={EmptyImg}
           btnText={'Back to home'}

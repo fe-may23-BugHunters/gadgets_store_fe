@@ -71,7 +71,8 @@ export const TabletsPage: React.FC = () => {
 
       <Loader isLoading={isLoading}>
         <EmptyComponent
-          data={tablets}
+          // data={tablets}
+          data={null}
           title={'There are no tablets yet...'}
           icon={EmptyImg}
           btnText={'Back to home'}
