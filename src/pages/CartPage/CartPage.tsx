@@ -25,8 +25,7 @@ export const CartPage: React.FC = () => {
 
       <Loader isLoading={false}>
         <EmptyComponent
-          // data={cartProducts}
-          data={null}
+          data={cartProducts}
           title={'Looks like your cart is empty...'}
           icon={BasketImg}
         >

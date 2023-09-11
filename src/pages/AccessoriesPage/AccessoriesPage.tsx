@@ -71,8 +71,7 @@ export const AccessoriesPage: React.FC = () => {
 
       <Loader isLoading={isLoading}>
         <EmptyComponent
-          // data={accessories}
-          data={null}
+          data={accessories}
           title={'There are no accessories yet...'}
           icon={EmptyImg}
           btnText={'Back to home'}
