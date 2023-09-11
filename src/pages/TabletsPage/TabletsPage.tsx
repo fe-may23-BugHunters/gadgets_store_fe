@@ -14,6 +14,7 @@ import {
   SortBy,
   sortByOptions,
 } from '../../types/product';
+import EmptyImg from '../../assets/icons/emptyList.png';
 
 export const TabletsPage: React.FC = () => {
   const { pathname, onPathChange } = usePathname();
@@ -63,50 +64,55 @@ export const TabletsPage: React.FC = () => {
   };
 
   return (
-    <article className="accessories">
-      <div className="accessories__breadCrumbs">
+    <article className="tablets">
+      <div className="tablets__breadCrumbs">
         <BreadCrumbs pathname={pathname} onPathChange={onPathChange} />
       </div>
 
-      <div className="accessories__header">
-        <h2 className="accessories__title">Tablets</h2>
-        <p className="accessories__model">{total} models</p>
-        {tablets.length > 0 && (
-          <>
-            <div className="accessories__select__block">
-              <div className="accessories__select__item">
-                <SelectBlock
-                  selectName="Sort by"
-                  value={sortBy}
-                  options={sortByOptions}
-                  onChangeSortBy={onSortChange}
-                />
-              </div>
-
-              <div className="accessories__select__item">
-                <SelectBlock
-                  selectName="Items on page"
-                  value={perPage}
-                  onChangePerPage={onItemsChange}
-                  options={perPageOptions}
-                />
-              </div>
-            </div>
-          </>
-        )}
-      </div>
-
       <Loader isLoading={isLoading}>
-        <EmptyComponent data={tablets} text={'Cannot get accessories :('}>
-          <div className="accessories__cards">
+        <EmptyComponent
+          data={tablets}
+          title={'There are no tablets yet...'}
+          icon={EmptyImg}
+          btnText={'Back to home'}
+        >
+          <div className="tablets__header">
+            <h2 className="tablets__title">Tablets</h2>
+            <p className="tablets__model">{total} models</p>
+            {tablets.length > 0 && (
+              <>
+                <div className="tablets__select__block">
+                  <div className="tablets__select__item">
+                    <SelectBlock
+                      selectName="Sort by"
+                      value={sortBy}
+                      options={sortByOptions}
+                      onChangeSortBy={onSortChange}
+                    />
+                  </div>
+
+                  <div className="tablets__select__item">
+                    <SelectBlock
+                      selectName="Items on page"
+                      value={perPage}
+                      onChangePerPage={onItemsChange}
+                      options={perPageOptions}
+                    />
+                  </div>
+                </div>
+              </>
+            )}
+          </div>
+
+          <div className="tablets__cards">
             {tablets.map((tablet) => (
-              <div className="accessories__card" key={tablet.id}>
+              <div className="tablets__card" key={tablet.id}>
                 <CardItem product={tablet} />
               </div>
             ))}
           </div>
 
-          <div className="accessories__pagination">
+          <div className="tablets__pagination">
             <Pagination
               total={total}
               perPage={+perPage}

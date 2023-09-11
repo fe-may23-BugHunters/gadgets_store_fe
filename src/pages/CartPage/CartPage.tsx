@@ -7,6 +7,7 @@ import { CartModal } from '../../components/CartModal';
 import { CartContext } from '../../context/CartContext';
 import { Loader } from '../../components/Loader';
 import { EmptyComponent } from '../../components/EmptyComponent';
+import BasketImg from '../../assets/icons/emptyBasket.png';
 
 export const CartPage: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
@@ -22,12 +23,14 @@ export const CartPage: React.FC = () => {
         <BtnBack />
       </div>
 
-      <h1 className="cart__title">Cart</h1>
       <Loader isLoading={false}>
         <EmptyComponent
           data={cartProducts}
-          text={"You haven't added anything to your cart yet"}
+          title={'Looks like your cart is empty...'}
+          icon={BasketImg}
         >
+          <h1 className="cart__title">Cart</h1>
+
           <div className="cart__content">
             <div className="cart__items">
               {cartProducts.map((cartProduct) => (

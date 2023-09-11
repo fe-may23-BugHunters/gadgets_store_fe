@@ -21,6 +21,7 @@ import { Product, VariantOptions } from '../../types/product';
 import { getNormalizedTechSpecs } from '../../helpers/products';
 import { EmptyComponent } from '../../components/EmptyComponent';
 import { Loader } from '../../components/Loader';
+import EmptyImg from '../../assets/icons/emptyList.png';
 
 export const ProductItem: React.FC = () => {
   const { pathname, onPathChange } = usePathname();
@@ -77,7 +78,16 @@ export const ProductItem: React.FC = () => {
   }
 
   if (!product) {
-    return <EmptyComponent data={product} text={'Cannot get product :('} />;
+    return (
+      <div className="noProduct">
+        <EmptyComponent
+          data={product}
+          title={'Cannot get product...'}
+          icon={EmptyImg}
+          btnText={'Back to home'}
+        />
+      </div>
+    );
   }
 
   const techSpecs = getNormalizedTechSpecs(product);

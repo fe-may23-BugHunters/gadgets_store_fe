@@ -84,3 +84,11 @@
     }
   }
 }
+
+.noProduct {
+  padding-top: 40px;
+
+  @include onDesktop {
+    padding-top: 60px;
+  }
+}
