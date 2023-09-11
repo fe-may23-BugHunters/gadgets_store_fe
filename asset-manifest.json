@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/gadgets_store_fe/static/css/main.87758fbf.css",
-    "main.js": "/gadgets_store_fe/static/js/main.47294e01.js",
+    "main.css": "/gadgets_store_fe/static/css/main.0a587dcf.css",
+    "main.js": "/gadgets_store_fe/static/js/main.75c415be.js",
     "static/media/Logo.svg": "/gadgets_store_fe/static/media/Logo.82f82c9ade36c8bb9559f23b90157ac2.svg",
     "static/media/Mont-Regular.ttf": "/gadgets_store_fe/static/media/Mont-Regular.7c9521719ef1f902cd6e.ttf",
     "static/media/Mont-SemiBold.ttf": "/gadgets_store_fe/static/media/Mont-SemiBold.c21ff6b111e2dd3dc2cf.ttf",
@@ -21,11 +21,11 @@
     "static/media/arrowUp.svg": "/gadgets_store_fe/static/media/arrowUp.c14c6ce9f0c1737bb3a93d4606420293.svg",
     "static/media/Minus.svg": "/gadgets_store_fe/static/media/Minus.e55c0b179fefa1f8d7dffd63a5c7d0ed.svg",
     "index.html": "/gadgets_store_fe/index.html",
-    "main.87758fbf.css.map": "/gadgets_store_fe/static/css/main.87758fbf.css.map",
-    "main.47294e01.js.map": "/gadgets_store_fe/static/js/main.47294e01.js.map"
+    "main.0a587dcf.css.map": "/gadgets_store_fe/static/css/main.0a587dcf.css.map",
+    "main.75c415be.js.map": "/gadgets_store_fe/static/js/main.75c415be.js.map"
   },
   "entrypoints": [
-    "static/css/main.87758fbf.css",
-    "static/js/main.47294e01.js"
+    "static/css/main.0a587dcf.css",
+    "static/js/main.75c415be.js"
   ]
 }
