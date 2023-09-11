@@ -1,6 +1,6 @@
 {
-  "name": "product_catalog_fe",
-  "homepage": "https://fe-may23-BugHunters.github.io/product_catalog_fe",
+  "name": "gadgets_store_fe",
+  "homepage": "https://fe-may23-BugHunters.github.io/gadgets_store_fe",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
