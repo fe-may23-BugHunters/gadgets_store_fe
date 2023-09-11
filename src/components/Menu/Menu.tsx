@@ -26,7 +26,11 @@ export const Menu: React.FC<Props> = ({ openMenu, links, isAuth }) => {
     <aside className="menu">
       <div className="menu__top">
         <div className="menu__header">
-          <div className="menu__logo">
+          <div
+            className="menu__logo"
+            role='btn'
+            onClick={openMenu}
+          >
             <Logo />
           </div>
 
@@ -55,7 +59,11 @@ export const Menu: React.FC<Props> = ({ openMenu, links, isAuth }) => {
 
             {!isAuth && (
               <li className="menu__item">
-                <div className="menu__signInBtn">
+                <div
+                  className="menu__signInBtn"
+                  role='btn'
+                  onClick={openMenu}
+                >
                   <WideBtn mainTitle={'Sign In'} />
                 </div>
               </li>
@@ -66,12 +74,20 @@ export const Menu: React.FC<Props> = ({ openMenu, links, isAuth }) => {
 
       <div className="menu__buttons">
         {isAuth && (
-          <div className="menu__btn menu__profile-btn">
+          <div
+            className="menu__btn menu__profile-btn"
+            role='btn'
+            onClick={openMenu}
+          >
             <HeaderBtn path={'/profile'} icon={ProfileImg} />
           </div>
         )}
 
-        <div className="menu__btn menu__favourite-btn">
+        <div
+          className="menu__btn menu__favourite-btn"
+          role='btn'
+          onClick={openMenu}
+        >
           <HeaderBtn
             path={'/favourites'}
             badge={totalFavouritesAmount}
@@ -79,7 +95,11 @@ export const Menu: React.FC<Props> = ({ openMenu, links, isAuth }) => {
           />
         </div>
 
-        <div className="menu__btn menu__cart-btn">
+        <div
+          className="menu__btn menu__cart-btn"
+          role='btn'
+          onClick={openMenu}
+        >
           <HeaderBtn path={'/cart'} badge={totalCartAmount} icon={CartImg} />
         </div>
       </div>
