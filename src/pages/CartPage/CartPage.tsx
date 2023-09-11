@@ -12,7 +12,7 @@ import BasketImg from '../../assets/icons/emptyBasket.png';
 export const CartPage: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
 
-  const { cartProducts, totalPrice, totalAmount, clearCart }
+  const { cartProducts, totalPrice, totalCartAmount, clearCart }
     = useContext(CartContext);
 
   return (
@@ -39,7 +39,7 @@ export const CartPage: React.FC = () => {
             </div>
             <div className="cart__checkout">
               <p className="cart__sum">${totalPrice}</p>
-              <p className="cart__count">Total for {totalAmount} items</p>
+              <p className="cart__count">Total for {totalCartAmount} items</p>
               <div className="cart__decor"></div>
 
               <div

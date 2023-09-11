@@ -5,7 +5,7 @@ import { CartItemAction, Product, ProductWithCount } from '../types/product';
 interface Context {
   cartProducts: ProductWithCount[];
   totalPrice?: number;
-  totalAmount?: number;
+  totalCartAmount: number;
   addCartProduct: (product: Product) => void;
   removeCartProduct: (id: string) => void;
   clearCart: () => void;
@@ -84,9 +84,9 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
       .reduce((a, b) => a + b);
   }, [cartProducts]);
 
-  const totalAmount = React.useMemo(() => {
+  const totalCartAmount = React.useMemo(() => {
     if (cartProducts.length === 0) {
-      return;
+      return 0;
     }
 
     return cartProducts.map((product) => product.count).reduce((a, b) => a + b);
@@ -95,7 +95,7 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
   const value = {
     cartProducts,
     totalPrice,
-    totalAmount,
+    totalCartAmount,
     addCartProduct,
     removeCartProduct,
     changeCount,

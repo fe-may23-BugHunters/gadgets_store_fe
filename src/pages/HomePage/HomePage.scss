@@ -10,7 +10,6 @@
 
   @include onDesktop {
     padding-block: 56px;
-    padding-left: 32px;
   }
 
   &__title {
@@ -23,6 +22,7 @@
 
     @include onTablet {
       margin-bottom: 32px;
+      font-size: 48px;
     }
 
     @include onDesktop {
@@ -72,6 +72,10 @@
       font-weight: 700;
       line-height: 140%;
       color: $color-white;
+
+      @include onTablet {
+        font-size: 32px;
+      }
     }
   }
 }

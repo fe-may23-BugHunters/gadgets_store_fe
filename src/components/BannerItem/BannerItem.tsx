@@ -10,7 +10,7 @@ export const BannerItem: React.FC<Props> = ({ banner }) => {
     <div className="bannerItem">
       <img
         className="bannerItem__img"
-        src={`${location.origin}/product_catalog_fe/${banner}`}
+        src={`${location.origin}/gadgets_store_fe/${banner}`}
         alt="Banner"
       />
     </div>
