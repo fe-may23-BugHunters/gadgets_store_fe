@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
+
 import './Header.scss';
 import { Logo } from '../Logo';
 import HeartImg from '../../assets/icons/heart.svg';
@@ -15,12 +17,15 @@ import { HeaderLinks } from '../../types/product';
 interface Props {
   links: HeaderLinks[];
   openMenu: () => void;
-  isAuth: boolean;
 }
 
-export const Header: React.FC<Props> = ({ links, openMenu, isAuth }) => {
+export const Header: React.FC<Props> = ({ links, openMenu }) => {
   const { totalFavouritesAmount } = useContext(FavouriteContext);
   const { totalCartAmount } = useContext(CartContext);
+  const {
+    isAuthenticated,
+    loginWithRedirect,
+  } = useAuth0();
 
   return (
     <header className="header">
@@ -40,8 +45,12 @@ export const Header: React.FC<Props> = ({ links, openMenu, isAuth }) => {
             ))}
           </ul>
 
-          {!isAuth && (
-            <div className="header__signInBtn">
+          {!isAuthenticated && (
+            <div
+              className="header__signInBtn"
+              role='btn'
+              onClick={() => loginWithRedirect()}
+            >
               <WideBtn mainTitle={'Sign In'} />
             </div>
           )}
@@ -50,11 +59,15 @@ export const Header: React.FC<Props> = ({ links, openMenu, isAuth }) => {
 
       <div className="header__leftPart">
         <button className="header__menu-burger" onClick={openMenu}>
-          <img className="headerBtn__menu-img" src={MenuImg} alt="Menu icon" />
+          <img
+            className="headerBtn__menu-img"
+            src={MenuImg}
+            alt="Menu icon"
+          />
         </button>
 
         <div className="header__buttons">
-          {isAuth && (
+          {isAuthenticated && (
             <div className="header__profile-btn">
               <HeaderBtn path={'/profile'} icon={ProfileImg} />
             </div>
@@ -69,7 +82,11 @@ export const Header: React.FC<Props> = ({ links, openMenu, isAuth }) => {
           </div>
 
           <div className="header__cart-btn">
-            <HeaderBtn path={'/cart'} badge={totalCartAmount} icon={CartImg} />
+            <HeaderBtn
+              path={'/cart'}
+              badge={totalCartAmount}
+              icon={CartImg}
+            />
           </div>
         </div>
       </div>

@@ -1,14 +1,19 @@
 import React, { useContext } from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
 import cn from 'classnames';
+
 import './LikeBtn.scss';
-import HeartImg from '../../assets/icons/heart.svg';
-import RedHeartImg from '../../assets/icons/heartRed.svg';
+
 import { Product } from '../../types/product';
 import { FavouriteContext } from '../../context/FavouriteContext';
 import {
   createFavouriteProduct,
   deleteFavouriteProduct,
 } from '../../api/favourites';
+import { ModalLayout } from '../../layouts/ModalLayout';
+import RedHeartImg from '../../assets/icons/heartRed.svg';
+import LoginImg from '../../assets/icons/login.png';
+import HeartImg from '../../assets/icons/heart.svg';
 
 type Props = {
   product?: Product;
@@ -17,13 +22,20 @@ type Props = {
 export const LikeBtn: React.FC<Props> = ({ product }) => {
   const { favouriteProducts, addFavouriteProduct, removeFavouriteProduct }
     = useContext(FavouriteContext);
+  const { isAuthenticated, loginWithRedirect, user } = useAuth0();
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
 
   const isFavourite = React.useMemo(() => {
     return favouriteProducts.find((item) => item.id === product?.id);
   }, [product, favouriteProducts.length]);
 
   const onAdd = () => {
+    if (!user?.sub) {
+      return;
+    }
+
     createFavouriteProduct({
+      userId: user.sub,
       productId: product?.id as string,
     })
       .then(() => {
@@ -35,7 +47,12 @@ export const LikeBtn: React.FC<Props> = ({ product }) => {
   };
 
   const onRemove = () => {
+    if (!user?.sub) {
+      return;
+    }
+
     deleteFavouriteProduct({
+      userId: user.sub,
       productId: product?.id as string,
     })
       .then(() => {
@@ -46,20 +63,50 @@ export const LikeBtn: React.FC<Props> = ({ product }) => {
       });
   };
 
+  const handleModalClick = () => {
+    if (!isAuthenticated) {
+      loginWithRedirect();
+    }
+
+    setIsModalOpen(false);
+  };
+
+  const handleClick = () => {
+    if (!isAuthenticated && !isModalOpen) {
+      setIsModalOpen(true);
+
+      return;
+    }
+
+    if (isFavourite && product) {
+      onRemove();
+    } else if (product) {
+      onAdd();
+    }
+  };
+
   return (
-    <button
-      className={cn('likeBtn', {
-        'likeBtn--active': isFavourite,
-      })}
-      onClick={() => {
-        if (isFavourite && product) {
-          onRemove();
-        } else if (product) {
-          onAdd();
-        }
-      }}
-    >
-      <img src={isFavourite ? RedHeartImg : HeartImg} alt="Favourite button" />
-    </button>
+    <>
+      {isModalOpen && (
+        <ModalLayout
+          title={'Please sign in'}
+          icon={LoginImg}
+          btnTitle={'Sign in'}
+          closeModal={() => setIsModalOpen(false)}
+          handleClick={handleModalClick}
+        />
+      )}
+      <button
+        className={cn('likeBtn', {
+          'likeBtn--active': isFavourite,
+        })}
+        onClick={handleClick}
+      >
+        <img
+          src={isFavourite ? RedHeartImg : HeartImg}
+          alt="Favourite button"
+        />
+      </button>
+    </>
   );
 };

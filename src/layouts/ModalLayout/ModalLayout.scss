@@ -1,0 +1,93 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/breakpoints';
+
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 12;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  overflow-x: hidden;
+
+  &__content {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: max-content;
+    padding: 50px 50px;
+
+    text-align: center;
+    background-color: $color-surface1;
+    border-radius: 15px;
+    box-shadow: 2px 4px 18px -3px rgba(241, 242, 249, 0.11);
+  }
+
+  &__closeBtn {
+    position: absolute;
+    top: 20px;
+    right: 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    width: 30px;
+    height: 30px;
+
+    background-color: transparent;
+    border: 1px solid transparent;
+    transition: transform $effectDuration,
+      border-color $effectDuration;
+
+    &:hover {
+      border-color: $color-surface2;
+    }
+
+    &:active {
+      border-color: $color-accent;
+    }
+  }
+
+  &__closeBtn-img {
+    width: 20px;
+    height: 20px;
+  }
+
+  &__title {
+    margin-bottom: 25px;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 128%;
+    letter-spacing: -0.32px;
+  }
+
+  &__icon {
+    max-width: 150px;
+    margin-bottom: 25px;
+
+    @include onTablet {
+      max-width: 200px;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    object-fit: contain;
+  }
+
+  &__backBtn {
+    display: block;
+    width: 100%;
+    height: 48px;
+  }
+}

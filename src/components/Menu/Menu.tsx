@@ -11,16 +11,20 @@ import CartImg from '../../assets/icons/Cart.svg';
 import ProfileImg from '../../assets/icons/profile.svg';
 import { CartContext } from '../../context/CartContext';
 import { FavouriteContext } from '../../context/FavouriteContext';
+import { useAuth0 } from '@auth0/auth0-react';
 
 interface Props {
   openMenu: () => void;
   links: HeaderLinks[];
-  isAuth: boolean;
 }
 
-export const Menu: React.FC<Props> = ({ openMenu, links, isAuth }) => {
+export const Menu: React.FC<Props> = ({ openMenu, links }) => {
   const { totalFavouritesAmount } = React.useContext(FavouriteContext);
   const { totalCartAmount } = React.useContext(CartContext);
+  const {
+    isAuthenticated,
+    loginWithRedirect,
+  } = useAuth0();
 
   return (
     <aside className="menu">
@@ -53,9 +57,13 @@ export const Menu: React.FC<Props> = ({ openMenu, links, isAuth }) => {
               </li>
             ))}
 
-            {!isAuth && (
+            {!isAuthenticated && (
               <li className="menu__item">
-                <div className="menu__signInBtn" role="btn" onClick={openMenu}>
+                <div
+                  className="menu__signInBtn"
+                  role="btn"
+                  onClick={() => loginWithRedirect()}
+                >
                   <WideBtn mainTitle={'Sign In'} />
                 </div>
               </li>
@@ -65,7 +73,7 @@ export const Menu: React.FC<Props> = ({ openMenu, links, isAuth }) => {
       </div>
 
       <div className="menu__buttons">
-        {isAuth && (
+        {isAuthenticated && (
           <div
             className="menu__btn menu__profile-btn"
             role="btn"

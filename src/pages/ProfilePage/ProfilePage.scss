@@ -1,0 +1,55 @@
+@import '../../styles/utils/breakpoints';
+
+.profile {
+  padding-block: 24px 35px;
+
+  &__breadCrumbs {
+    margin-block-end: 24px;
+
+    @include onTablet {
+      margin-block-end: 40px;
+    }
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-block-end: 50px;
+    gap: 25px;
+
+    @include onTablet {
+      text-align: start;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 25px;
+  }
+
+  &__logoutBtn {
+    display: block;
+    width: 160px;
+    height: 38px;
+    border: none;
+    background-color: transparent;
+  }
+
+  &__order-title {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 25px;
+  }
+
+  &__orders {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+}
