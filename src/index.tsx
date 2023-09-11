@@ -14,7 +14,7 @@ root.render(
     domain="dev-rqz08go8yg6bow22.us.auth0.com"
     clientId="Fj4aMD52UsiE0yM2lu8vIxR6FzLoWCNR"
     authorizationParams={{
-      redirect_uri: 'https://fe-may23-bughunters.github.io/gadgets_store_fe/',
+      redirect_uri: window.location.origin,
     }}
   >
     <React.StrictMode>
