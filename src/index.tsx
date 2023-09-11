@@ -14,7 +14,7 @@ root.render(
     domain="dev-rqz08go8yg6bow22.us.auth0.com"
     clientId="Fj4aMD52UsiE0yM2lu8vIxR6FzLoWCNR"
     authorizationParams={{
-      redirect_uri: window.location.origin,
+      redirect_uri: window.location.origin + '/gadgets_store_fe',
     }}
   >
     <React.StrictMode>
