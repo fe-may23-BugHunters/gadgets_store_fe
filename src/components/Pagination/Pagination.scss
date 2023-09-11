@@ -25,7 +25,8 @@
     background-color: $color-accent;
   }
 
-  &__item-arrow {
+  &__item-arrow,
+  &__item-more {
     display: flex;
     align-items: center;
     justify-content: center;
