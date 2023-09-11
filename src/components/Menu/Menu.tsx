@@ -21,10 +21,7 @@ interface Props {
 export const Menu: React.FC<Props> = ({ openMenu, links }) => {
   const { totalFavouritesAmount } = React.useContext(FavouriteContext);
   const { totalCartAmount } = React.useContext(CartContext);
-  const {
-    isAuthenticated,
-    loginWithRedirect,
-  } = useAuth0();
+  const { isAuthenticated, loginWithRedirect } = useAuth0();
 
   return (
     <aside className="menu">

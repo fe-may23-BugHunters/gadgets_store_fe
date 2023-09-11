@@ -22,10 +22,7 @@ interface Props {
 export const Header: React.FC<Props> = ({ links, openMenu }) => {
   const { totalFavouritesAmount } = useContext(FavouriteContext);
   const { totalCartAmount } = useContext(CartContext);
-  const {
-    isAuthenticated,
-    loginWithRedirect,
-  } = useAuth0();
+  const { isAuthenticated, loginWithRedirect } = useAuth0();
 
   return (
     <header className="header">
@@ -48,7 +45,7 @@ export const Header: React.FC<Props> = ({ links, openMenu }) => {
           {!isAuthenticated && (
             <div
               className="header__signInBtn"
-              role='btn'
+              role="btn"
               onClick={() => loginWithRedirect()}
             >
               <WideBtn mainTitle={'Sign In'} />
@@ -59,11 +56,7 @@ export const Header: React.FC<Props> = ({ links, openMenu }) => {
 
       <div className="header__leftPart">
         <button className="header__menu-burger" onClick={openMenu}>
-          <img
-            className="headerBtn__menu-img"
-            src={MenuImg}
-            alt="Menu icon"
-          />
+          <img className="headerBtn__menu-img" src={MenuImg} alt="Menu icon" />
         </button>
 
         <div className="header__buttons">
@@ -82,11 +75,7 @@ export const Header: React.FC<Props> = ({ links, openMenu }) => {
           </div>
 
           <div className="header__cart-btn">
-            <HeaderBtn
-              path={'/cart'}
-              badge={totalCartAmount}
-              icon={CartImg}
-            />
+            <HeaderBtn path={'/cart'} badge={totalCartAmount} icon={CartImg} />
           </div>
         </div>
       </div>

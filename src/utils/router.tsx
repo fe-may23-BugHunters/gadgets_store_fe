@@ -42,11 +42,13 @@ export const AppRouter: React.FC = () => {
             <Route path=":itemId" element={<ProductItem />} />
           </Route>
 
-          <Route path="profile" element={(
-            <AuthMiddleWare>
-              <ProfilePage />
-            </AuthMiddleWare>
-            )}
+          <Route
+            path="profile"
+            element={
+              <AuthMiddleWare>
+                <ProfilePage />
+              </AuthMiddleWare>
+            }
           />
 
           <Route path="favourites" element={<FavouritesPage />} />

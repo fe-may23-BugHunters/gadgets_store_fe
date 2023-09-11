@@ -18,10 +18,9 @@ type Props = {
 };
 
 export const FavoriteProvider: React.FC<Props> = ({ children }) => {
-  const [
-    favouriteProducts,
-    setFavouriteProducts,
-  ] = React.useState<Product[]>([]);
+  const [favouriteProducts, setFavouriteProducts] = React.useState<Product[]>(
+    [],
+  );
   const { user } = useAuth0();
 
   const [isLoading, setIsLoading] = React.useState(false);

@@ -19,12 +19,7 @@ export const CartPage: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = React.useState(false);
   const { isAuthenticated, loginWithRedirect } = useAuth0();
 
-  const {
-    cartProducts,
-    totalPrice,
-    totalCartAmount,
-    clearCart,
-  }
+  const { cartProducts, totalPrice, totalCartAmount, clearCart }
     = useContext(CartContext);
 
   const handleModalClick = () => {
@@ -42,9 +37,8 @@ export const CartPage: React.FC = () => {
     <section className="cart">
       {isModalOpen && (
         <ModalLayout
-          title={isAuthenticated
-            ? 'Thank you for your order!'
-            : 'Please sign in'
+          title={
+            isAuthenticated ? 'Thank you for your order!' : 'Please sign in'
           }
           icon={isAuthenticated ? OrderImg : LoginImg}
           btnTitle={!isAuthenticated ? 'Sign in' : undefined}

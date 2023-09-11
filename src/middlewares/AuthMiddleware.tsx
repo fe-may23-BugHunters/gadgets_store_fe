@@ -4,7 +4,7 @@ import { Navigate } from 'react-router';
 import { Loader } from '../components/Loader';
 
 interface Props {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export const AuthMiddleWare: React.FC<Props> = ({ children }) => {
@@ -18,9 +18,5 @@ export const AuthMiddleWare: React.FC<Props> = ({ children }) => {
     return <Navigate to={'/'} />;
   }
 
-  return (
-    <>
-    {children}
-    </>
-  );
+  return <>{children}</>;
 };

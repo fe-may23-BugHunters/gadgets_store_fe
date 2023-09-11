@@ -5,19 +5,19 @@ export interface DescriptionItem {
 }
 
 export interface OrderProduct {
-  productId: string,
-  name: string,
-  category: string,
-  quantity: number,
-  price: number,
+  productId: string;
+  name: string;
+  category: string;
+  quantity: number;
+  price: number;
 }
 
 export interface Order {
-  id: string,
-  totalItems: number,
-  createdAt: string,
-  price: number,
-  products: OrderProduct[],
+  id: string;
+  totalItems: number;
+  createdAt: string;
+  price: number;
+  products: OrderProduct[];
 }
 
 export interface Product {

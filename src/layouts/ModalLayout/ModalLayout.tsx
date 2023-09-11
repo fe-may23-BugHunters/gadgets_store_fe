@@ -5,12 +5,12 @@ import { WideBtn } from '../../components/WideBtn';
 import CloseImgfrom from '../../assets/icons/Close.svg';
 
 interface Props {
-  title: string,
-  icon: string,
-  btnPath?: string,
-  btnTitle?: string,
-  handleClick: () => void,
-  closeModal: () => void,
+  title: string;
+  icon: string;
+  btnPath?: string;
+  btnTitle?: string;
+  handleClick: () => void;
+  closeModal: () => void;
 }
 
 export const ModalLayout: React.FC<Props> = ({
@@ -45,10 +45,7 @@ export const ModalLayout: React.FC<Props> = ({
   return (
     <div className="modal" ref={modalBlockRef}>
       <div className="modal__content" ref={modalContentRef}>
-        <button
-          className="modal__closeBtn"
-          onClick={closeModal}
-        >
+        <button className="modal__closeBtn" onClick={closeModal}>
           <img
             className="modal__closeBtn-img"
             src={CloseImgfrom}
@@ -58,18 +55,10 @@ export const ModalLayout: React.FC<Props> = ({
         <h2 className="modal__title">{title}</h2>
 
         <div className="modal__icon">
-          <img
-            className="modal__img"
-            src={icon}
-            alt="icon"
-          />
+          <img className="modal__img" src={icon} alt="icon" />
         </div>
 
-        <NavLink
-          to={btnPath}
-          className="modal__backBtn"
-          onClick={handleClick}
-        >
+        <NavLink to={btnPath} className="modal__backBtn" onClick={handleClick}>
           <WideBtn mainTitle={btnTitle} />
         </NavLink>
       </div>

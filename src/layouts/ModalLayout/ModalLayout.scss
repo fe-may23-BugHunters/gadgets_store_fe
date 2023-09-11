@@ -46,7 +46,8 @@
 
     background-color: transparent;
     border: 1px solid transparent;
-    transition: transform $effectDuration,
+    transition:
+      transform $effectDuration,
       border-color $effectDuration;
 
     &:hover {

@@ -43,15 +43,9 @@ export const MainLayout: React.FC<Props> = ({ children }) => {
         'page--disabled-scroll': isMenuOpen,
       })}
     >
-      <Header
-        links={links}
-        openMenu={() => setIsMenuOpen(!isMenuOpen)}
-      />
+      <Header links={links} openMenu={() => setIsMenuOpen(!isMenuOpen)} />
       {isMenuOpen && (
-        <Menu
-          openMenu={() => setIsMenuOpen(false)}
-          links={links}
-        />
+        <Menu openMenu={() => setIsMenuOpen(false)} links={links} />
       )}
 
       <main className="page__content">

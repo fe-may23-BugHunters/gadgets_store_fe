@@ -14,28 +14,20 @@ export const OrderItem: React.FC<Props> = ({ order }) => {
       <div className="order__header">
         <div className="order__col">
           Order ID:
-
-          <span className="order__value">
-            {order.id.slice(0, 7)}
-          </span>
+          <span className="order__value">{order.id.slice(0, 7)}</span>
         </div>
         <div className="order__col">
           Total items:
-
-          <span className="order__value">
-            {order.totalItems}
-          </span>
+          <span className="order__value">{order.totalItems}</span>
         </div>
         <div className="order__col">
           Date:
-
           <span className="order__value">
             {normalizedTime(order.createdAt)}
           </span>
         </div>
         <div className="order__col">
           Total price:
-
           <span className="order__value order__totalPrice">
             {`$${order.price}`}
           </span>
@@ -43,7 +35,7 @@ export const OrderItem: React.FC<Props> = ({ order }) => {
       </div>
 
       <ul className="order__list">
-        {order.products.map(product => (
+        {order.products.map((product) => (
           <li className="order__item" key={product.productId}>
             <NavLink
               to={`/${product.category}/${product.productId}`}
