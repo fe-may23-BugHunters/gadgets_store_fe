@@ -7,6 +7,7 @@ interface Context {
   isLoading: boolean;
   addFavouriteProduct: (product: Product) => void;
   removeFavouriteProduct: (id: string) => void;
+  totalFavouritesAmount: number;
 }
 
 export const FavouriteContext = createContext({} as Context);
@@ -55,11 +56,16 @@ export const FavoriteProvider: React.FC<Props> = ({ children }) => {
       current.filter((product) => product.id !== id));
   };
 
+  const totalFavouritesAmount = React.useMemo(() => {
+    return favouriteProducts.length;
+  }, [favouriteProducts]);
+
   const value = {
     favouriteProducts,
     isLoading,
     addFavouriteProduct,
     removeFavouriteProduct,
+    totalFavouritesAmount,
   };
 
   return (

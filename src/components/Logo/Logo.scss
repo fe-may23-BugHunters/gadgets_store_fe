@@ -1,12 +1,5 @@
-@import '../../styles/utils/breakpoints';
-@import '../../styles/utils/variables';
-@import '../../styles/utils/mixins';
-
 .logo {
-  &__link {
-    width: 89px;
-    height: 32px;
-  }
+  display: block;
 
   &__img {
     width: 100%;

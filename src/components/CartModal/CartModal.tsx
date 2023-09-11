@@ -20,11 +20,7 @@ export const CartModal: React.FC<Props> = ({ handleClick }) => {
 
         <p className="cartModal__orderDate">Order date: {orderDate}</p>
 
-        <NavLink
-          to="/"
-          className="cartModal__backBtn"
-          onClick={handleClick}
-        >
+        <NavLink to="/" className="cartModal__backBtn" onClick={handleClick}>
           <WideBtn mainTitle="Back to Store" />
         </NavLink>
       </div>

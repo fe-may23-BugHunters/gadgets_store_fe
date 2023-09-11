@@ -42,8 +42,12 @@ export const TabletsPage: React.FC = () => {
   useEffect(() => {
     setIsLoading(true);
 
-    getProductsByCategory(+perPage, +perPage * (currentPage - 1),
-      Categories.TABLETS, sortBy)
+    getProductsByCategory(
+      +perPage,
+      +perPage * (currentPage - 1),
+      Categories.TABLETS,
+      sortBy,
+    )
       .then((response) => {
         setTablets(response.data.rows);
         setTotal(response.data.count);
@@ -93,10 +97,7 @@ export const TabletsPage: React.FC = () => {
       </div>
 
       <Loader isLoading={isLoading}>
-        <EmptyComponent
-          data={tablets}
-          text={'Cannot get accessories :('}
-        >
+        <EmptyComponent data={tablets} text={'Cannot get accessories :('}>
           <div className="accessories__cards">
             {tablets.map((tablet) => (
               <div className="accessories__card" key={tablet.id}>

@@ -1,0 +1,169 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/breakpoints';
+@import '../../styles/utils/extends';
+
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 11;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  box-sizing: border-box;
+  background-color: $color-dark;
+
+  @media (min-width: '750px') {
+    display: none;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: $header-height-mobile;
+    box-sizing: border-box;
+    border-bottom: 1px solid $color-surface2;
+    background-color: $color-dark;
+
+    @include onDesktop {
+      height: $header-height-desktop;
+    }
+  }
+
+  &__logo {
+    flex-shrink: 0;
+    width: 64px;
+    height: 22px;
+    padding-inline: 16px;
+
+    @include onDesktop {
+      width: 80px;
+      height: 28px;
+      padding-inline: 24px;
+    }
+  }
+
+  &__closeBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: $header-height-mobile;
+    aspect-ratio: 1 / 1;
+
+    border: none;
+    border-left: 1px solid $color-surface2;
+    background-color: transparent;
+    transition: background-color $effectDuration;
+
+    &:hover {
+      background-color: $color-secondary;
+    }
+
+    &:active {
+      background-color: $color-accent;
+    }
+  }
+
+  &__closeBtn-img {
+    width: 16px;
+    height: 16px;
+  }
+
+  &__nav {
+    padding-block: 32px;
+    max-height: 400px;
+    height: 100%;
+    box-sizing: border-box;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+
+    @include onDesktop {
+      gap: 32px;
+    }
+  }
+
+  &__signInBtn {
+    width: 100px;
+    height: 28px;
+  }
+
+  &__link {
+    position: relative;
+
+    display: block;
+    padding-block: 8px;
+
+    color: $color-secondary;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: 0.48px;
+    text-transform: uppercase;
+    transition:
+      opacity $effectDuration,
+      color $effectDuration;
+
+    @extend %navUnderline;
+
+    &::after {
+      height: 2px;
+    }
+
+    &:hover {
+      color: $color-white;
+
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+    height: $header-height-mobile;
+    border-top: 1px solid $color-surface2;
+
+    @include onDesktop {
+      height: $header-height-desktop;
+    }
+  }
+
+  &__btn {
+    position: relative;
+    flex-grow: 1;
+
+    @extend %navUnderline;
+
+    &.active {
+      &::after {
+        opacity: 1;
+      }
+    }
+
+    &:hover {
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__btn:not(:last-child) {
+    border-right: 1px solid $color-surface2;
+  }
+}
