@@ -12,45 +12,7 @@ import { EmptyComponent } from '../../components/EmptyComponent';
 import EmptyImg from '../../assets/icons/emptyList.png';
 
 export const ProfilePage: React.FC = () => {
-  const [orders] = React.useState<Order[]>([
-    {
-      id: 'dfgdfgdfgfdgdfgdfg',
-      totalItems: 1111,
-      createdAt: new Date().toString(),
-      price: 1111,
-      products: [
-        {
-          productId: 'string',
-          name: 'Apple iPhone 11 128GB Black',
-          category: 'string',
-          quantity: 1,
-          price: 1111,
-        },
-        {
-          productId: 'string',
-          name: 'Apple iPhone 11 128GB Black',
-          category: 'string',
-          quantity: 1111,
-          price: 1111,
-        },
-      ],
-    },
-    {
-      id: 'string',
-      totalItems: 1111,
-      createdAt: new Date().toString(),
-      price: 1111,
-      products: [
-        {
-          productId: 'string',
-          name: 'Apple iPhone 11 128GB Black',
-          category: 'string',
-          quantity: 48,
-          price: 1111,
-        },
-      ],
-    },
-  ]);
+  const [orders] = React.useState<Order[]>([]);
   const [isLoading] = React.useState(false);
   const { pathname, onPathChange } = usePathname();
   const { user, logout } = useAuth0();
