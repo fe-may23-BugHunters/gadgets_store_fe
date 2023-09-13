@@ -55,6 +55,8 @@
   }
 
   &__title {
+    max-height: 42px;
+    overflow: hidden;
     color: $color-white;
     font-weight: 600;
     line-height: 21px;
@@ -127,8 +129,10 @@
   }
 
   &__detailValue {
-    color: $color-white;
     width: max-content;
+    max-height: 42px;
+    overflow: hidden;
+    color: $color-white;
     text-align: right;
     max-height: 24px;
     overflow-y: hidden;
