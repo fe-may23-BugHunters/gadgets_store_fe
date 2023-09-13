@@ -9,21 +9,29 @@ import { Product } from '../../types/product';
 export const HomePage: React.FC = () => {
   const [newBrandProducts, setNewBrandProducts] = useState<Product[]>([]);
   const [discountProducts, setDiscountProducts] = useState<Product[]>([]);
+  const [isNewModelsLoading, setIsNewModelsLoading] = useState(false);
+  const [isHotPricesLoading, setIsHotPricesLoading] = useState(false);
 
   useEffect(() => {
+    setIsNewModelsLoading(true);
+
     getNewBrandProducts()
       .then((response) => setNewBrandProducts(response.data))
       .catch((error) => {
         throw new Error(error);
-      });
+      })
+      .finally(() => setIsNewModelsLoading(false));
   }, []);
 
   useEffect(() => {
+    setIsHotPricesLoading(true);
+
     getDiscountProducts()
       .then((response) => setDiscountProducts(response.data))
       .catch((error) => {
         throw new Error(error);
-      });
+      })
+      .finally(() => setIsHotPricesLoading(false));
   }, []);
 
   return (
@@ -35,7 +43,11 @@ export const HomePage: React.FC = () => {
       </section>
 
       <section className="home-page__new">
-        <CardSlider models={newBrandProducts} title={'Brand new models'} />
+        <CardSlider
+          models={newBrandProducts}
+          title={'Brand new models'}
+          isLoading={isNewModelsLoading}
+        />
       </section>
 
       <section className="home-page__category">
@@ -44,7 +56,11 @@ export const HomePage: React.FC = () => {
       </section>
 
       <section className="home-page__hot">
-        <CardSlider models={discountProducts} title={'Hot prices'} />
+        <CardSlider
+          models={discountProducts}
+          title={'Hot prices'}
+          isLoading={isHotPricesLoading}
+        />
       </section>
     </div>
   );
