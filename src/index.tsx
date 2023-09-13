@@ -12,13 +12,10 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
 );
 
-const authClientId: string = process.env.REACT_APP_AUTH_CLIENTID || '';
-const authDomain: string = process.env.REACT_APP_AUTH_DOMAIN || '';
-
 root.render(
   <Auth0Provider
-    domain={authDomain}
-    clientId={authClientId}
+    domain={process.env.REACT_APP_AUTH_DOMAIN}
+    clientId={process.env.REACT_APP_AUTH_CLIENTID}
     authorizationParams={{
       redirect_uri: window.location.origin,
     }}
