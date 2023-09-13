@@ -6,13 +6,19 @@ import { ReactComponent as ArrowLeft } from '../../assets/icons/arrowLeft.svg';
 import { ReactComponent as ArrowRight } from '../../assets/icons/arrowRight.svg';
 import { Product } from '../../types/product';
 import { CardItem } from '../CardItem';
+import { CardSkeleton } from '../skeletons/CardSkeleton';
 
 interface Props {
   title: string;
   models: Product[];
+  isLoading?: boolean;
 }
 
-export const CardSlider: React.FC<Props> = ({ title, models }) => {
+export const CardSlider: React.FC<Props> = ({
+  title,
+  models,
+  isLoading,
+}) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [maxScroll, setMaxScroll] = useState(0);
@@ -96,11 +102,25 @@ export const CardSlider: React.FC<Props> = ({ title, models }) => {
         onScroll={handleScroll}
       >
         <div className="carouselSlider">
-          {models.map((model) => (
-            <div className="cardContainer" key={model.id}>
-              <CardItem product={model} />
-            </div>
-          ))}
+          {isLoading ? (
+            <>
+              {Array.from({ length: 5 }).map((_, index) => (
+                <React.Fragment key={index}>
+                  <div className="cardContainer">
+                    <CardSkeleton />
+                  </div>
+                </React.Fragment>
+              ))}
+            </>
+          ) : (
+            <>
+              {models.map((model) => (
+                <div className="cardContainer" key={model.id}>
+                  <CardItem product={model} />
+                </div>
+              ))}
+            </>
+          )}
         </div>
       </div>
     </div>

@@ -4,15 +4,19 @@
 
 .card {
   display: flex;
-  box-sizing: border-box;
+  justify-self: stretch;
   flex-direction: column;
-  width: 100%;
-  padding: 32px;
   gap: 8px;
+
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 32px;
+
   border: 1px solid transparent;
   background-color: $color-surface1;
   transition:
-    box-shadow,
+    box-shadow $effectDuration,
     border $effectDuration;
 
   &:hover {
@@ -20,51 +24,63 @@
     box-shadow: 0px 2px 16px 0px rgba(0, 0, 0, 0.1);
   }
 
-  &__title {
-    min-height: 42px;
-    color: $color-white;
-    font-weight: 600;
-    line-height: 21px;
-  }
-
   &__photo {
     display: flex;
     justify-content: center;
-    margin-bottom: 16px;
     height: 130px;
-    object-fit: contain;
+    margin-bottom: 16px;
     cursor: pointer;
-    transition: transform $effectDuration;
 
     @include onTablet {
       height: 196px;
     }
+  }
+
+  &__img {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    transition: transform $effectDuration;
 
     &:hover {
       transform: $effectScaleBtn;
     }
   }
 
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-grow: 1;
+  }
+
+  &__title {
+    color: $color-white;
+    font-weight: 600;
+    line-height: 21px;
+  }
+
   &__price {
     display: flex;
     align-items: center;
+    padding-block-end: 8px;
+    margin-block-end: 8px;
     gap: 8px;
+    border-bottom: 1px solid $color-elements;
+  }
+
+  &__newPrice,
+  &__oldPrice {
+    display: block;
     font-size: 22px;
     font-weight: 700;
     line-height: 140%;
-
-    &__old {
-      color: $color-secondary;
-      font-size: 22px;
-      font-weight: 600;
-      text-decoration-line: line-through;
-    }
   }
 
-  &__line {
-    height: 1px;
-    width: 100%;
-    background-color: $color-elements;
+  &__oldPrice {
+    color: $color-secondary;
+    font-weight: 600;
+    text-decoration: line-through;
   }
 
   &__details {
@@ -76,31 +92,47 @@
 
   &__buttons {
     display: flex;
+    height: 40px;
     box-sizing: border-box;
     gap: 8px;
   }
 
   &__likeBtn {
+    display: block;
+    aspect-ratio: 1 / 1;
     width: 40px;
-    height: 40px;
+    box-sizing: border-box;
   }
 
   &__addToCartBtn {
     width: 100%;
   }
+
+  &__detail {
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  &__detailTitle,
+  &__detailValue {
+    max-width: 50%;
+  }
+
+  &__detailTitle {
+    color: $color-secondary;
+    width: max-content;
+  }
+
+  &__detailValue {
+    color: $color-white;
+    width: max-content;
+    text-align: right;
+    max-height: 24px;
+    overflow-y: hidden;
+  }
 }
 
-.detail {
-  display: flex;
-  justify-content: space-between;
-}
 
-.detailTitle {
-  color: $color-secondary;
-}
-
-.detailValue {
-  color: $color-white;
-  margin-left: 10px;
-  text-align: end;
-}
