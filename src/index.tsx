@@ -13,13 +13,10 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <Auth0Provider
-    domain={process.env.REACT_APP_AUTH_DOMAIN as string}
-    clientId={process.env.REACT_APP_AUTH_CLIENTID as string}
+    domain={process.env.REACT_APP_AUTH0_DOMAIN as string}
+    clientId={process.env.REACT_APP_AUTH0_CLIENTID as string}
     authorizationParams={{
-      redirect_uri:
-        process.env.NODE_ENV === 'development'
-          ? window.location.origin
-          : window.location.origin + '/gadgets_store_fe',
+      redirect_uri: window.location.origin,
     }}
   >
     <React.StrictMode>

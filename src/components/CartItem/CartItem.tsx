@@ -34,7 +34,7 @@ export const CartItem: React.FC<Props> = ({ cartProduct }) => {
               className="cartItem__imageBlock"
             >
               <img
-                src={`${location.origin}/gadgets_store_fe/${cartProduct.images[0]}`}
+                src={`${location.origin}/${cartProduct.images[0]}`}
                 className="cartItem__image"
                 alt={cartProduct.name}
               />
