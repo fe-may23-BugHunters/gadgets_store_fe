@@ -1,0 +1,78 @@
+@import '../../styles/utils/breakpoints';
+@import '../../styles/utils/variables';
+
+.order {
+  &__header {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-block-end: 10px;
+    gap: 10px;
+
+    @include onTablet {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__col {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    color: $color-secondary;
+
+    @include onTablet {
+      justify-content: flex-start;
+    }
+  }
+
+  &__value {
+    display: block;
+    color: $color-white;
+  }
+
+  &__totalPrice {
+    font-size: 18px;
+    font-weight: 700;
+    color: $color-white;
+
+    @include onTablet {
+      font-size: 22px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 10px;
+    box-sizing: border-box;
+
+    color: $color-white;
+    font-size: 16px;
+    border: 1px solid transparent;
+    background-color: #161827;
+    transition: background-color $effectDuration;
+    cursor: pointer;
+
+    &:hover {
+      background-color: transparent;
+      border-color: $color-accent-light;
+    }
+  }
+
+  &__productInfo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+}

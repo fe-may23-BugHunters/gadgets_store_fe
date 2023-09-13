@@ -118,7 +118,10 @@ export const Pagination: React.FC<Props> = ({
             1
           </button>
           {startVisiblePage > 2 && (
-            <button className="pagination__item more" onClick={() => onPageClick(currentPage - 5)}>
+            <button
+              className="pagination__item more"
+              onClick={() => onPageClick(currentPage - 5)}
+            >
               ...
             </button>
           )}
@@ -128,7 +131,10 @@ export const Pagination: React.FC<Props> = ({
       {endVisiblePage < totalPages && (
         <>
           {endVisiblePage < totalPages - 1 && (
-            <button className="pagination__item more" onClick={() => onPageClick(currentPage + 5)}>
+            <button
+              className="pagination__item more"
+              onClick={() => onPageClick(currentPage + 5)}
+            >
               ...
             </button>
           )}

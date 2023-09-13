@@ -43,7 +43,7 @@ export function getNormalizedTechSpecs(product: Product) {
   ].filter(({ value }) => value);
 }
 
-export function getCurrentTime() {
+export function normalizedTime(time: string) {
   const months = [
     'Jan',
     'Feb',
@@ -58,7 +58,7 @@ export function getCurrentTime() {
     'Nov',
     'Dec',
   ];
-  const date = new Date();
+  const date = new Date(time);
   const day = addZero(date.getDate());
   const month = months[date.getMonth()];
   const year = addZero(date.getFullYear());
