@@ -9,21 +9,27 @@ Welcome to the Nice Gadgets Store! This web application is designed to provide u
 ## Features
 
 ### Authentication
+
 Users can log in, and securely authenticate themselves to make orders.
 
 ### Product Catalog
+
 The application offers a wide range of gadgets of different categories with detailed information such as product descriptions, specifications, pricing, and images.
 
 ### Search and Filtering
+
 Users can easily search for specific gadgets by names or apply filtering & sorting options based on price, release date or category.
 
 ### Shopping Cart
+
 Users can add products to their shopping cart, view the contents, and manage quantities before proceeding to checkout.
 
 ### Favorites
+
 Users can add some products to their wishlist.
 
 ### Orders History
+
 All the information about user's orders is saved and it is available on the profile page.
 
 ## Preview
@@ -43,11 +49,12 @@ All the information about user's orders is saved and it is available on the prof
 **Authentication**: [Auth0](https://auth0.com/)
 
 ## Installation
+
 1. Clone or fork the repository
 1. Create your own `.env` file based on `.env.production` file
-2. Run `npm install` or `yarn` in your terminal to download all the packages and dependencies
-3. Run `npm run dev` or `yarn run dev` in your terminal to start the development server
-4. Enjoy!
+1. Run `npm install` or `yarn` in your terminal to download all the packages and dependencies
+1. Run `npm run dev` or `yarn run dev` in your terminal to start the development server
+1. Enjoy!
 
 ## Contributors
 
