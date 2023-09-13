@@ -19,7 +19,7 @@ export const CardItem: React.FC<Props> = ({ product }) => {
       >
         <img
           className="card__img"
-          src={`${location.origin}/gadgets_store_fe/${product?.images[0]}`}
+          src={`${location.origin}/${product?.images[0]}`}
           alt={product?.name}
         />
       </NavLink>
