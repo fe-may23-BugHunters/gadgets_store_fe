@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-
+import 'react-loading-skeleton/dist/skeleton.css';
 import { Auth0Provider } from '@auth0/auth0-react';
+
 import { AppRouter } from './utils/router';
 import { FavoriteProvider } from './context/FavouriteContext';
 import { CartProvider } from './context/CartContext';
@@ -9,15 +10,6 @@ import { CartProvider } from './context/CartContext';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
 );
-
-// eslint-disable-next-line max-len, no-console
-console.log(`You are running this application in <b>
-${process.env.REACT_APP_AUTH_DOMAIN}------
-${process.env.REACT_APP_AUTH_CLIENTID}----
-${process.env.NODE_ENV}---
-${process.env.REACT_APP_AUTH0_PRODUCTION_REDIRECT}---
-${window.location.origin}-
-</b> mode.`);
 
 root.render(
   <Auth0Provider
