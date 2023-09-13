@@ -10,9 +10,7 @@ interface Props {
   product: Product;
 }
 
-export const CardItem: React.FC<Props> = ({
-  product,
-}) => {
+export const CardItem: React.FC<Props> = ({ product }) => {
   return (
     <article className="card">
       <NavLink

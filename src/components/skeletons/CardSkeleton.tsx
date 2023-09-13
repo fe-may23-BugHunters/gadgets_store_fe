@@ -12,7 +12,7 @@ export const CardSkeleton: React.FC = () => {
 
       <h2 className="card__title">
         <div className="skeleton">
-          <Skeleton height={'42px'} style={{ lineHeight: '21px' }}/>
+          <Skeleton height={'42px'} style={{ lineHeight: '21px' }} />
         </div>
       </h2>
 
@@ -27,7 +27,7 @@ export const CardSkeleton: React.FC = () => {
       <div className="card__buttons">
         <div className="card__addToCartBtn">
           <div className="skeleton">
-            <Skeleton height={'40px'}/>
+            <Skeleton height={'40px'} />
           </div>
         </div>
       </div>

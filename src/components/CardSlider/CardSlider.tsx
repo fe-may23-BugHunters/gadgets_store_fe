@@ -14,11 +14,7 @@ interface Props {
   isLoading?: boolean;
 }
 
-export const CardSlider: React.FC<Props> = ({
-  title,
-  models,
-  isLoading,
-}) => {
+export const CardSlider: React.FC<Props> = ({ title, models, isLoading }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [maxScroll, setMaxScroll] = useState(0);
