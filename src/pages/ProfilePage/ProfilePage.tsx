@@ -35,10 +35,7 @@ export const ProfilePage: React.FC = () => {
           onClick={() =>
             logout({
               logoutParams: {
-                returnTo:
-                  process.env.NODE_ENV === 'development'
-                    ? window.location.origin
-                    : window.location.origin + '/gadgets_store_fe',
+                returnTo: window.location.origin,
               },
             })
           }
