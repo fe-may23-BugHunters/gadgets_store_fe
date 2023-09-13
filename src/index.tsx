@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+
 import 'react-loading-skeleton/dist/skeleton.css';
 import { Auth0Provider } from '@auth0/auth0-react';
 
@@ -11,10 +12,13 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
 );
 
+const authClientId: string = process.env.REACT_APP_AUTH_CLIENTID || '';
+const authDomain: string = process.env.REACT_APP_AUTH_DOMAIN || '';
+
 root.render(
   <Auth0Provider
-    domain={process.env.REACT_APP_AUTH0_DOMAIN as string}
-    clientId={process.env.REACT_APP_AUTH0_CLIENTID as string}
+    domain={authDomain}
+    clientId={authClientId}
     authorizationParams={{
       redirect_uri: window.location.origin,
     }}
