@@ -26,7 +26,7 @@ export const TabletsPage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const perPageFromURL = Number(searchParams.get('perPage')) || 4;
-  const sortByFromURL = searchParams.get('sortBy') as SortBy || SortBy.NAME;
+  const sortByFromURL = (searchParams.get('sortBy') as SortBy) || SortBy.NAME;
 
   const [perPage, setPerPage] = useState<number>(perPageFromURL);
   const [sortBy, setSortBy] = useState<SortBy>(sortByFromURL);
@@ -80,8 +80,8 @@ export const TabletsPage: React.FC = () => {
   };
 
   return (
-    <article className="accessories">
-      <div className="accessories__breadCrumbs">
+    <article className="tablets">
+      <div className="tablets__breadCrumbs">
         <BreadCrumbs pathname={pathname} onPathChange={onPathChange} />
       </div>
 
@@ -92,15 +92,15 @@ export const TabletsPage: React.FC = () => {
           icon={EmptyImg}
           btnText={'Back to home'}
         >
-          <div className="accessories__header">
-            <h2 className="accessories__title">Tablets</h2>
+          <div className="tablets__header">
+            <h2 className="tablets__title">Tablets</h2>
 
-            <p className="accessories__model">{total} models</p>
+            <p className="tablets__model">{total} models</p>
 
             {tablets.length > 0 && (
               <>
-                <div className="accessories__select__block">
-                  <div className="accessories__select__item">
+                <div className="tablets__select__block">
+                  <div className="tablets__select__item">
                     <SelectBlock
                       selectName="Sort by"
                       value={sortBy as SortBy}
@@ -109,7 +109,7 @@ export const TabletsPage: React.FC = () => {
                     />
                   </div>
 
-                  <div className="accessories__select__item">
+                  <div className="tablets__select__item">
                     <SelectBlock
                       selectName="Items on page"
                       value={perPage}
@@ -122,15 +122,15 @@ export const TabletsPage: React.FC = () => {
             )}
           </div>
 
-          <div className="accessories__cards">
-            {tablets.map((phone) => (
-              <div className="accessories__card" key={phone.id}>
-                <CardItem product={phone} />
+          <div className="tablets__cards">
+            {tablets.map((tablet) => (
+              <div className="tablets__card" key={tablet.id}>
+                <CardItem product={tablet} />
               </div>
             ))}
           </div>
 
-          <div className="accessories__pagination">
+          <div className="tablets__pagination">
             <Pagination
               total={total}
               perPage={perPage}

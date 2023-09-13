@@ -26,7 +26,7 @@ export const AccessoriesPage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const perPageFromURL = Number(searchParams.get('perPage')) || 4;
-  const sortByFromURL = searchParams.get('sortBy') as SortBy || SortBy.NAME;
+  const sortByFromURL = (searchParams.get('sortBy') as SortBy) || SortBy.NAME;
 
   const [perPage, setPerPage] = useState<number>(perPageFromURL);
   const [sortBy, setSortBy] = useState<SortBy>(sortByFromURL);
@@ -123,9 +123,9 @@ export const AccessoriesPage: React.FC = () => {
           </div>
 
           <div className="accessories__cards">
-            {accessories.map((phone) => (
-              <div className="accessories__card" key={phone.id}>
-                <CardItem product={phone} />
+            {accessories.map((accessory) => (
+              <div className="accessories__card" key={accessory.id}>
+                <CardItem product={accessory} />
               </div>
             ))}
           </div>
