@@ -34,7 +34,7 @@ All the information about user's orders is saved and it is available on the prof
 
 ## Preview
 
-[**🔗Click here!**](https://fe-may23-bughunters.github.io/gadgets_store_fe/)
+[**🔗Click here!**](https://the-gadgets-store.netlify.app/)
 
 <p align="center">
   <img src="./public/home-page.jpg">
@@ -47,14 +47,14 @@ All the information about user's orders is saved and it is available on the prof
 [**Backend**](https://github.com/fe-may23-BugHunters/gadgets_store_be): TypeScript, Node.js, Express.js, Sequelize
 
 **Authentication**: [Auth0](https://auth0.com/)
+**Deployment**: [Netlify](https://www.netlify.com/)
 
 ## Installation
 
 1. Clone or fork the repository
-2. Create your own `.env` file based on `.env.production` file
-3. Run `npm install` or `yarn` in your terminal to download all the packages and dependencies
-4. Run `npm run dev` or `yarn run dev` in your terminal to start the development server
-5. Enjoy!
+2. Run `npm install` or `yarn` in your terminal to download all the packages and dependencies
+3. Run `npm run start` or `yarn run start` in your terminal to start the development server
+4. Enjoy!
 
 ## Contributors
 
