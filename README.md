@@ -51,10 +51,10 @@ All the information about user's orders is saved and it is available on the prof
 ## Installation
 
 1. Clone or fork the repository
-1. Create your own `.env` file based on `.env.production` file
-1. Run `npm install` or `yarn` in your terminal to download all the packages and dependencies
-1. Run `npm run dev` or `yarn run dev` in your terminal to start the development server
-1. Enjoy!
+2. Create your own `.env` file based on `.env.production` file
+3. Run `npm install` or `yarn` in your terminal to download all the packages and dependencies
+4. Run `npm run dev` or `yarn run dev` in your terminal to start the development server
+5. Enjoy!
 
 ## Contributors
 
