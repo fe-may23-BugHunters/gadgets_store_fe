@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Routes,
   Route,
-  HashRouter as Router,
+  BrowserRouter as Router,
   Navigate,
 } from 'react-router-dom';
 import { CartPage } from '../pages/CartPage';
