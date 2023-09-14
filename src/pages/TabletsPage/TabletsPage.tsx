@@ -99,24 +99,20 @@ export const TabletsPage: React.FC = () => {
 
             {tablets.length > 0 && (
               <>
-                <div className="tablets__select__block">
-                  <div className="tablets__select__item">
+                <div className="tablets__selects">
                     <SelectBlock
                       selectName="Sort by"
                       value={sortBy as SortBy}
                       options={sortByOptions}
                       onChangeSortBy={onSortChange}
                     />
-                  </div>
 
-                  <div className="tablets__select__item">
                     <SelectBlock
                       selectName="Items on page"
                       value={perPage}
                       onChangePerPage={onItemsChange}
                       options={perPageOptions}
                     />
-                  </div>
                 </div>
               </>
             )}

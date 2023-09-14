@@ -1,7 +1,7 @@
 import React from 'react';
-import { WideBtn } from '../../../components/WideBtn';
 import { NavLink } from 'react-router-dom';
 import './WithoutContentLayout.scss';
+import { WideBtn } from '../../components/WideBtn';
 
 interface Props {
   title: string;

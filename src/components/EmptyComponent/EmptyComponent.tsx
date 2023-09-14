@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React from 'react';
 import './EmptyComponent.scss';
-import { WithoutContentLayout } from '../../layouts/MainLayout/WithoutContentLayout';
+import { WithoutContentLayout } from '../../layouts/WithoutContentLayout';
 
 type Props = {
   data: any;

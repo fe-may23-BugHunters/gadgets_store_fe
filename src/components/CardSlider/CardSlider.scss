@@ -1,87 +1,86 @@
 @import 'src/styles/utils/variables';
 @import 'src/styles/utils/breakpoints';
-@import 'src/styles/utils/mixins';
 
-.cardContainer {
-  width: 212px;
-
-  @include onTablet {
-    width: 237px;
-  }
-
-  @include onDesktop {
-    width: 272px;
-  }
-}
-
-.carouselContainer {
+.cardSlider {
   width: 100%;
-}
+  user-select: none;
 
-.CarouselSliderContainer {
-  overflow-x: scroll;
-  scroll-behavior: smooth;
-
-  -ms-overflow-style: none; /* Internet Explorer */
-
-  &::-webkit-scrollbar {
-    display: none; /* Webkit browsers */
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
   }
-}
 
-.carouselSlider {
-  display: inline-flex;
-  gap: 16px;
-  transition: transform 0.5s ease-in-out;
-}
+  &__title {
+    justify-self: flex-start;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 41px;
+    letter-spacing: -0.32px;
+    color: $color-white;
 
-.carouselArrow {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 32px;
-  height: 32px;
-  margin-left: 16px;
-  background-color: $color-surface2;
-  border: 1px solid transparent;
-  cursor: pointer;
-
-  &__left--disabled,
-  &__right--disabled {
-    pointer-events: none;
-    background-color: transparent;
-    border-color: $color-surface2;
-
-    svg {
-      fill: $color-icons;
+    @include onTablet {
+      font-size: 32px;
+      line-height: 56px;
+      letter-spacing: -0.48px;
     }
   }
-}
 
-.carouselHeader {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 24px;
-}
-
-.carouselHeader__title {
-  justify-self: left;
-  font-size: 22px;
-  font-weight: 800;
-  line-height: 41px;
-  letter-spacing: -0.32px;
-  color: $color-white;
-
-  @include onTablet {
-    font-size: 32px;
-    line-height: 56px;
-    letter-spacing: -0.48px;
+  &__arrowBtns {
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    justify-content: flex-end;
   }
-}
 
-.carouselHeader__arrows {
-  display: flex;
-  justify-self: center;
-  align-self: center;
-  justify-content: flex-end;
+  &__arrowBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    margin-left: 16px;
+    background-color: $color-surface2;
+    border: 1px solid transparent;
+    cursor: pointer;
+
+    &--left--disabled,
+    &--right--disabled {
+      pointer-events: none;
+      background-color: transparent;
+      border-color: $color-surface2;
+
+      svg {
+        fill: $color-icons;
+      }
+    }
+  }
+
+  &__carousel {
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__slides {
+    display: inline-flex;
+    gap: 16px;
+
+    transition: transform 0.5s ease-in-out;
+  }
+
+  &__card {
+    width: 212px;
+
+    @include onTablet {
+      width: 237px;
+    }
+
+    @include onDesktop {
+      width: 272px;
+    }
+  }
 }

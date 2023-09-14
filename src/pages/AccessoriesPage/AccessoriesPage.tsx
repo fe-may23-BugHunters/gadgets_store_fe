@@ -99,24 +99,20 @@ export const AccessoriesPage: React.FC = () => {
 
             {accessories.length > 0 && (
               <>
-                <div className="accessories__select__block">
-                  <div className="accessories__select__item">
+                <div className="accessories__selects">
                     <SelectBlock
                       selectName="Sort by"
                       value={sortBy as SortBy}
                       options={sortByOptions}
                       onChangeSortBy={onSortChange}
                     />
-                  </div>
 
-                  <div className="accessories__select__item">
                     <SelectBlock
                       selectName="Items on page"
                       value={perPage}
                       onChangePerPage={onItemsChange}
                       options={perPageOptions}
                     />
-                  </div>
                 </div>
               </>
             )}
