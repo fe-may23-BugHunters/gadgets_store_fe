@@ -4,6 +4,22 @@ export interface DescriptionItem {
   text: string[];
 }
 
+export interface OrderProduct {
+  productId: string;
+  name: string;
+  category: string;
+  quantity: number;
+  price: number;
+}
+
+export interface Order {
+  id: string;
+  totalItems: number;
+  createdAt: string;
+  price: number;
+  products: OrderProduct[];
+}
+
 export interface Product {
   id: string;
   namespaceId: string;

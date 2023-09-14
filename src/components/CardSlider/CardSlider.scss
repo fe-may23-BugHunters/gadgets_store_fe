@@ -4,8 +4,6 @@
 
 .cardContainer {
   width: 212px;
-  height: 100%;
-  background-color: $color-secondary;
 
   @include onTablet {
     width: 237px;

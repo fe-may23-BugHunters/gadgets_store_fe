@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Routes,
   Route,
-  HashRouter as Router,
+  BrowserRouter as Router,
   Navigate,
 } from 'react-router-dom';
 import { CartPage } from '../pages/CartPage';
@@ -16,6 +16,8 @@ import { FavouritesPage } from '../pages/FavouritesPage';
 import { ProductItem } from '../pages/ProductItem';
 import { RightsPage } from '../pages/RightsPage';
 import { ContactsPage } from '../pages/ContactsPage';
+import { AuthMiddleWare } from '../middlewares/AuthMiddleware';
+import { ProfilePage } from '../pages/ProfilePage';
 
 export const AppRouter: React.FC = () => {
   return (
@@ -39,6 +41,15 @@ export const AppRouter: React.FC = () => {
             <Route index element={<AccessoriesPage />} />
             <Route path=":itemId" element={<ProductItem />} />
           </Route>
+
+          <Route
+            path="profile"
+            element={
+              <AuthMiddleWare>
+                <ProfilePage />
+              </AuthMiddleWare>
+            }
+          />
 
           <Route path="favourites" element={<FavouritesPage />} />
           <Route path="rights" element={<RightsPage />} />

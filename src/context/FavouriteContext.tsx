@@ -1,6 +1,7 @@
 import React, { createContext } from 'react';
 import { getAllByUserId } from '../api/favourites';
 import { Product } from '../types/product';
+import { useAuth0 } from '@auth0/auth0-react';
 
 interface Context {
   favouriteProducts: Product[];
@@ -20,13 +21,18 @@ export const FavoriteProvider: React.FC<Props> = ({ children }) => {
   const [favouriteProducts, setFavouriteProducts] = React.useState<Product[]>(
     [],
   );
+  const { user } = useAuth0();
 
   const [isLoading, setIsLoading] = React.useState(false);
 
   React.useEffect(() => {
+    if (!user?.sub) {
+      return;
+    }
+
     setIsLoading(true);
 
-    getAllByUserId()
+    getAllByUserId(user.sub)
       .then((dataFromServer) => {
         setFavouriteProducts(() =>
           dataFromServer.data.map(
@@ -37,14 +43,14 @@ export const FavoriteProvider: React.FC<Props> = ({ children }) => {
         throw new Error('Product by id is not found');
       })
       .finally(() => setIsLoading(false));
-  }, []);
+  }, [user]);
 
   const addFavouriteProduct = (newFavourite: Product) => {
     const isProductExist = favouriteProducts.find(
       (product) => product.id === newFavourite.id,
     );
 
-    if (isProductExist) {
+    if (isProductExist || !user?.sub) {
       return;
     }
 
@@ -52,6 +58,10 @@ export const FavoriteProvider: React.FC<Props> = ({ children }) => {
   };
 
   const removeFavouriteProduct = (id: string) => {
+    if (!user?.sub) {
+      return;
+    }
+
     setFavouriteProducts((current) =>
       current.filter((product) => product.id !== id));
   };

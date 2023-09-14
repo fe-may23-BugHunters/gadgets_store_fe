@@ -9,7 +9,7 @@ export const Categories: React.FC = () => {
         <article className="categories__card">
           <NavLink to="/phones" className="categories__link">
             <img
-              src={`${location.origin}/gadgets_store_fe/img/Category_phones.jpg`}
+              src={`${location.origin}/img/Category_phones.jpg`}
               alt="category_phones"
               className="categories__photo"
             />
@@ -20,7 +20,7 @@ export const Categories: React.FC = () => {
         <article className="categories__card">
           <NavLink to="/tablets" className="categories__link">
             <img
-              src={`${location.origin}/gadgets_store_fe/img/Category_tablets.jpg`}
+              src={`${location.origin}/img/Category_tablets.jpg`}
               alt="category_phones"
               className="categories__photo"
             />
@@ -32,7 +32,7 @@ export const Categories: React.FC = () => {
         <article className="categories__card">
           <NavLink to="/accessories" className="categories__link">
             <img
-              src={`${location.origin}/gadgets_store_fe/img/Category_accessories.jpg`}
+              src={`${location.origin}/img/Category_accessories.jpg`}
               alt="category_accessories"
               className="categories__photo"
             />
