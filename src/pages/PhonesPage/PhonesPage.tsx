@@ -4,6 +4,7 @@ import { SelectBlock } from '../../components/SelectBlock';
 import { Pagination } from '../../components/Pagination';
 import { CardItem } from '../../components/CardItem';
 import { usePathname } from '../../hooks/usePathname';
+import { useSearchParams } from 'react-router-dom';
 import { BreadCrumbs } from '../../components/BreadCrumbs';
 import { Loader } from '../../components/Loader';
 import { EmptyComponent } from '../../components/EmptyComponent';
@@ -18,13 +19,18 @@ import EmptyImg from '../../assets/icons/emptyList.png';
 
 export const PhonesPage: React.FC = () => {
   const { pathname, onPathChange } = usePathname();
-
   const [phones, setPhones] = useState<Product[]>([]);
-  const [perPage, setPerPage] = useState<string | number>(4);
-  const [sortBy, setSortBy] = useState<SortBy>(SortBy.NAME);
-  const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [total, setTotal] = useState(0);
+
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const perPageFromURL = Number(searchParams.get('perPage')) || 4;
+  const sortByFromURL = (searchParams.get('sortBy') as SortBy) || SortBy.NAME;
+
+  const [perPage, setPerPage] = useState<number>(perPageFromURL);
+  const [sortBy, setSortBy] = useState<SortBy>(sortByFromURL);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const perPageOptions = [
     { title: '4', value: 4 },
@@ -34,10 +40,20 @@ export const PhonesPage: React.FC = () => {
 
   function onItemsChange(option: number) {
     setPerPage(option);
+
+    const updatedSearchParams = new URLSearchParams(searchParams.toString());
+
+    updatedSearchParams.set('perPage', option.toString());
+    setSearchParams(updatedSearchParams);
   }
 
   function onSortChange(option: SortBy) {
     setSortBy(option);
+
+    const updatedSearchParams = new URLSearchParams(searchParams.toString());
+
+    updatedSearchParams.set('sortBy', option);
+    setSearchParams(updatedSearchParams);
   }
 
   useEffect(() => {
@@ -47,7 +63,7 @@ export const PhonesPage: React.FC = () => {
       +perPage,
       +perPage * (currentPage - 1),
       Categories.PHONES,
-      sortBy,
+      sortBy as SortBy,
     )
       .then((response) => {
         setPhones(response.data.rows);
@@ -64,8 +80,8 @@ export const PhonesPage: React.FC = () => {
   };
 
   return (
-    <article className="accessories">
-      <div className="accessories__breadCrumbs">
+    <article className="phones">
+      <div className="phones__breadCrumbs">
         <BreadCrumbs pathname={pathname} onPathChange={onPathChange} />
       </div>
 
@@ -76,24 +92,24 @@ export const PhonesPage: React.FC = () => {
           icon={EmptyImg}
           btnText={'Back to home'}
         >
-          <div className="accessories__header">
-            <h2 className="accessories__title">Phones</h2>
+          <div className="phones__header">
+            <h2 className="phones__title">Phones</h2>
 
-            <p className="accessories__model">{total} models</p>
+            <p className="phones__model">{total} models</p>
 
             {phones.length > 0 && (
               <>
-                <div className="accessories__select__block">
-                  <div className="accessories__select__item">
+                <div className="phones__select__block">
+                  <div className="phones__select__item">
                     <SelectBlock
                       selectName="Sort by"
-                      value={sortBy}
+                      value={sortBy as SortBy}
                       options={sortByOptions}
                       onChangeSortBy={onSortChange}
                     />
                   </div>
 
-                  <div className="accessories__select__item">
+                  <div className="phones__select__item">
                     <SelectBlock
                       selectName="Items on page"
                       value={perPage}
@@ -106,18 +122,18 @@ export const PhonesPage: React.FC = () => {
             )}
           </div>
 
-          <div className="accessories__cards">
+          <div className="phones__cards">
             {phones.map((phone) => (
-              <div className="accessories__card" key={phone.id}>
+              <div className="phones__card" key={phone.id}>
                 <CardItem product={phone} />
               </div>
             ))}
           </div>
 
-          <div className="accessories__pagination">
+          <div className="phones__pagination">
             <Pagination
               total={total}
-              perPage={+perPage}
+              perPage={perPage}
               currentPage={currentPage}
               onPageChange={handlePageChange}
             />

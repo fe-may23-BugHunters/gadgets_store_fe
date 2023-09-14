@@ -4,6 +4,7 @@ import { SelectBlock } from '../../components/SelectBlock';
 import { Pagination } from '../../components/Pagination';
 import { CardItem } from '../../components/CardItem';
 import { usePathname } from '../../hooks/usePathname';
+import { useSearchParams } from 'react-router-dom';
 import { BreadCrumbs } from '../../components/BreadCrumbs';
 import { Loader } from '../../components/Loader';
 import { EmptyComponent } from '../../components/EmptyComponent';
@@ -18,13 +19,18 @@ import EmptyImg from '../../assets/icons/emptyList.png';
 
 export const TabletsPage: React.FC = () => {
   const { pathname, onPathChange } = usePathname();
-
   const [tablets, setTablets] = useState<Product[]>([]);
-  const [perPage, setPerPage] = useState<string | number>(4);
-  const [sortBy, setSortBy] = useState<SortBy>(SortBy.NAME);
-  const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
   const [total, setTotal] = useState(0);
+
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const perPageFromURL = Number(searchParams.get('perPage')) || 4;
+  const sortByFromURL = (searchParams.get('sortBy') as SortBy) || SortBy.NAME;
+
+  const [perPage, setPerPage] = useState<number>(perPageFromURL);
+  const [sortBy, setSortBy] = useState<SortBy>(sortByFromURL);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const perPageOptions = [
     { title: '4', value: 4 },
@@ -34,10 +40,20 @@ export const TabletsPage: React.FC = () => {
 
   function onItemsChange(option: number) {
     setPerPage(option);
+
+    const updatedSearchParams = new URLSearchParams(searchParams.toString());
+
+    updatedSearchParams.set('perPage', option.toString());
+    setSearchParams(updatedSearchParams);
   }
 
   function onSortChange(option: SortBy) {
     setSortBy(option);
+
+    const updatedSearchParams = new URLSearchParams(searchParams.toString());
+
+    updatedSearchParams.set('sortBy', option);
+    setSearchParams(updatedSearchParams);
   }
 
   useEffect(() => {
@@ -47,7 +63,7 @@ export const TabletsPage: React.FC = () => {
       +perPage,
       +perPage * (currentPage - 1),
       Categories.TABLETS,
-      sortBy,
+      sortBy as SortBy,
     )
       .then((response) => {
         setTablets(response.data.rows);
@@ -72,20 +88,22 @@ export const TabletsPage: React.FC = () => {
       <Loader isLoading={isLoading}>
         <EmptyComponent
           data={tablets}
-          title={'There are no tablets yet...'}
+          title={'There are no Tablets yet...'}
           icon={EmptyImg}
           btnText={'Back to home'}
         >
           <div className="tablets__header">
             <h2 className="tablets__title">Tablets</h2>
+
             <p className="tablets__model">{total} models</p>
+
             {tablets.length > 0 && (
               <>
                 <div className="tablets__select__block">
                   <div className="tablets__select__item">
                     <SelectBlock
                       selectName="Sort by"
-                      value={sortBy}
+                      value={sortBy as SortBy}
                       options={sortByOptions}
                       onChangeSortBy={onSortChange}
                     />
@@ -115,7 +133,7 @@ export const TabletsPage: React.FC = () => {
           <div className="tablets__pagination">
             <Pagination
               total={total}
-              perPage={+perPage}
+              perPage={perPage}
               currentPage={currentPage}
               onPageChange={handlePageChange}
             />
