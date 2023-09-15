@@ -6,5 +6,23 @@ type Props = {
 };
 
 export const Loader: React.FC<Props> = ({ isLoading, children }) => {
-  return <>{isLoading ? <div className="spinner" /> : <>{children}</>}</>;
+  React.useEffect(() => {
+    if (isLoading) {
+      document.querySelector('body')?.classList.add('disabled-scroll');
+    } else {
+      document.querySelector('body')?.classList.remove('disabled-scroll');
+    }
+  }, [isLoading]);
+
+  return (
+    <>
+      {isLoading ? (
+        <div className="spinner__bg">
+          <div className="spinner__item" />
+        </div>
+      ) : (
+      <>{children}</>
+      )}
+    </>
+  );
 };

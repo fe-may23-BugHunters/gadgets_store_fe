@@ -2,17 +2,8 @@
 @import '../../styles/utils/breakpoints';
 
 .selectBlock {
-  max-width: 136px;
-  max-height: 59px;
+  width: 100%;
   margin-bottom: 20px;
-
-  @include onTablet {
-    max-width: 187px;
-  }
-
-  @include onDesktop {
-    max-width: 176px;
-  }
 
   &__title {
     margin-bottom: 5px;
@@ -23,17 +14,9 @@
 
   &__wrapper {
     position: relative;
-    min-width: 136px;
-    min-height: 40px;
+    height: 40px;
+    box-sizing: border-box;
     background-color: $color-surface2;
-
-    @include onTablet {
-      min-width: 187px;
-    }
-
-    @include onDesktop {
-      min-width: 176px;
-    }
   }
 
   &__content {
@@ -48,40 +31,45 @@
   }
 
   &__selected-option {
-    padding: 15px;
+    padding: 10px 12px;
     text-wrap: nowrap;
   }
 
   &__img {
-    position: absolute;
-    right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+  }
 
-    &-img {
-      display: flex;
-    }
+  &__icon {
+    width: 16px;
+    height: 16px;
   }
 
   &__options {
     position: absolute;
     z-index: 1;
-    top: 53px;
+    top: 46px;
+
     display: none;
     box-sizing: border-box;
     width: 100%;
     list-style: none;
     background-color: $color-surface2;
     border: 2px solid $color-surface2;
-  }
 
-  &__options.active {
-    display: block;
-    background-color: $color-dark;
+    &.active {
+      display: block;
+      background-color: $color-dark;
+    }
   }
 
   &__option {
     padding: 15px;
     color: $color-white;
     cursor: pointer;
+    transition: background-color $effectDuration;
 
     &:hover {
       background-color: $color-surface2;

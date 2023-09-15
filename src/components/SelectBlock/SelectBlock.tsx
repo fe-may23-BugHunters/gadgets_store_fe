@@ -64,6 +64,7 @@ export const SelectBlock: React.FC<Props> = ({
   return (
     <div className="selectBlock">
       <h3 className="selectBlock__title">{selectName}</h3>
+
       <div className="selectBlock__wrapper" ref={wrapperRef}>
         <div
           className="selectBlock__content"
@@ -71,22 +72,16 @@ export const SelectBlock: React.FC<Props> = ({
           onClick={toggleDropdown}
         >
           <div className="selectBlock__selected-option">{selectTitle}</div>
+
           <div className="selectBlock__img">
-            {isOpen ? (
-              <img
-                className="selectBlock__img-img"
-                src={arrowUp}
-                alt="arrowUp"
-              />
-            ) : (
-              <img
-                className="selectBlock__img-img"
-                src={arrowDown}
-                alt="arrowDown"
-              />
-            )}
+            <img
+              className="selectBlock__icon"
+              src={isOpen ? arrowUp : arrowDown}
+              alt={isOpen ? 'arrowUp' : 'arrowDown' }
+            />
           </div>
         </div>
+
         <ul className={cn('selectBlock__options', { active: isOpen })}>
           {options.map((option) => (
             <li

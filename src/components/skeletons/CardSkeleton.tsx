@@ -6,7 +6,7 @@ export const CardSkeleton: React.FC = () => {
     <article className="card">
       <div className="card__photo">
         <div className="skeleton">
-          <Skeleton height={'196px'} />
+          <Skeleton height={'100%'}/>
         </div>
       </div>
 

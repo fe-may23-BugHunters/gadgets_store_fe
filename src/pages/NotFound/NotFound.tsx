@@ -1,8 +1,7 @@
-// eslint-disable-next-line max-len
-import { WithoutContentLayout } from '../../layouts/MainLayout/WithoutContentLayout';
-import './NotFound.scss';
 import React from 'react';
+import './NotFound.scss';
 import notFoundImg from '../../assets/icons/notFound.png';
+import { WithoutContentLayout } from '../../layouts/WithoutContentLayout';
 
 export const NotFound: React.FC = () => {
   return (

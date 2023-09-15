@@ -67,23 +67,26 @@ export const CardSlider: React.FC<Props> = ({ title, models, isLoading }) => {
   };
 
   return (
-    <div className="carouselContainer">
-      <div className="carouselHeader">
-        <h2 className="carouselHeader__title">{title}</h2>
+    <div className="cardSlider">
+      <div className="cardSlider__header">
+        <h2 className="cardSlider__title">{title}</h2>
 
-        <div className="carouselHeader__arrows">
+        <div className="cardSlider__arrowBtns">
           <div
-            className={classNames('carouselArrow', 'carouselArrow-left', {
-              'carouselArrow__left--disabled': scrollPosition === 0,
-            })}
+            className={classNames(
+              'cardSlider__arrowBtn',
+              {
+                'cardSlider__arrowBtn--left--disabled': scrollPosition === 0,
+              },
+            )}
             onClick={handleScrollLeft}
           >
             <ArrowLeft />
           </div>
 
           <div
-            className={classNames('carouselArrow', 'carouselArrow-right', {
-              'carouselArrow__right--disabled':
+            className={classNames('cardSlider__arrowBtn', {
+              'cardSlider__arrowBtn--right--disabled':
                 maxScroll - scrollPosition <= 10,
             })}
             onClick={handleScrollRight}
@@ -93,16 +96,16 @@ export const CardSlider: React.FC<Props> = ({ title, models, isLoading }) => {
         </div>
       </div>
       <div
-        className="CarouselSliderContainer"
+        className="cardSlider__carousel"
         ref={containerRef}
         onScroll={handleScroll}
       >
-        <div className="carouselSlider">
+        <div className="cardSlider__slides">
           {isLoading ? (
             <>
               {Array.from({ length: 5 }).map((_, index) => (
                 <React.Fragment key={index}>
-                  <div className="cardContainer">
+                  <div className="cardSlider__card">
                     <CardSkeleton />
                   </div>
                 </React.Fragment>
@@ -111,7 +114,7 @@ export const CardSlider: React.FC<Props> = ({ title, models, isLoading }) => {
           ) : (
             <>
               {models.map((model) => (
-                <div className="cardContainer" key={model.id}>
+                <div className="cardSlider__card" key={model.id}>
                   <CardItem product={model} />
                 </div>
               ))}

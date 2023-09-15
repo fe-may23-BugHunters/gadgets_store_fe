@@ -3,6 +3,7 @@
 @import 'utils/typography';
 @import 'utils/variables';
 @import 'utils/breakpoints';
+@import 'blocks/skeleton';
 
 :root {
   font-family: $font-family;
@@ -18,26 +19,5 @@
 
   &::-webkit-scrollbar {
     display: none;
-  }
-}
-
-.skeleton {
-  width: 100%;
-  height: 100%;
-  background-color: $color-surface2;
-  box-sizing: border-box;
-  border-radius: 5px;
-
-  .react-loading-skeleton {
-    width: 100%;
-    background-color: transparent;
-
-    &::after {
-      background-image: linear-gradient(
-        90deg,
-        rgba(50, 53, 66, 1) 0%,
-        rgba(59, 62, 74, 1) 49%
-      );
-    }
   }
 }
