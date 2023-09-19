@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './ProfilePage.scss';
 
 import { BreadCrumbs } from '../../components/BreadCrumbs';
@@ -6,16 +6,30 @@ import { usePathname } from '../../hooks/usePathname';
 import { useAuth0 } from '@auth0/auth0-react';
 import { WideBtn } from '../../components/WideBtn';
 import { OrderItem } from '../../components/OrderItem';
-import { Order } from '../../types/product';
 import { Loader } from '../../components/Loader';
 import { EmptyComponent } from '../../components/EmptyComponent';
 import EmptyImg from '../../assets/icons/emptyList.png';
+import { getOrdersByUserId } from '../../api/orders';
+import { Order } from '../../types/order';
 
 export const ProfilePage: React.FC = () => {
-  const [orders] = React.useState<Order[]>([]);
-  const [isLoading] = React.useState(false);
+  const [orders, setOrders] = useState<Order[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
   const { pathname, onPathChange } = usePathname();
   const { user, logout } = useAuth0();
+
+  useEffect(() => {
+    setIsLoading(true);
+
+    getOrdersByUserId(user.sub)
+      .then(ordersFromServer => {
+        setOrders(ordersFromServer);
+      })
+      .catch(err => {
+        throw new Error(err);
+      })
+      .finally(() => setIsLoading(false));
+  }, []);
 
   return (
     <div className="profile">

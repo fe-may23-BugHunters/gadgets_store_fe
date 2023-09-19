@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 
 import './CartPage.scss';
@@ -14,18 +14,42 @@ import { ModalLayout } from '../../layouts/ModalLayout';
 import BasketImg from '../../assets/icons/emptyBasket.png';
 import LoginImg from '../../assets/icons/login.png';
 import OrderImg from '../../assets/icons/order.png';
+import { createOrder } from '../../api/orders';
 
 export const CartPage: React.FC = () => {
-  const [isModalOpen, setIsModalOpen] = React.useState(false);
-  const { isAuthenticated, loginWithRedirect } = useAuth0();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const { isAuthenticated, loginWithRedirect, user } = useAuth0();
 
   const { cartProducts, totalPrice, totalCartAmount, clearCart }
     = useContext(CartContext);
 
   const handleModalClick = () => {
     if (isAuthenticated) {
-      // createNewOrder();
-      clearCart();
+      const products = cartProducts.map(product => {
+        return {
+          quantity: product.count,
+          productId: product.id,
+        };
+      });
+
+      const order = {
+        userId: user.sub,
+        totalItems: totalCartAmount,
+        totalPrice,
+        products,
+      };
+
+      setIsLoading(true);
+
+      createOrder(order)
+        .then(() => {
+          clearCart();
+        })
+        .catch(err => {
+          throw new Error(err);
+        })
+        .finally(() => setIsLoading(false));
     } else {
       loginWithRedirect();
     }
@@ -57,7 +81,7 @@ export const CartPage: React.FC = () => {
         <BtnBack />
       </div>
 
-      <Loader isLoading={false}>
+      <Loader isLoading={isLoading}>
         <EmptyComponent
           data={cartProducts}
           title={'Looks like your cart is empty...'}
@@ -80,7 +104,6 @@ export const CartPage: React.FC = () => {
                 className="cart__checkoutBtn"
                 role="button"
                 onClick={() => {
-                  // clearCart();
                   setIsModalOpen(true);
                 }}
               >
