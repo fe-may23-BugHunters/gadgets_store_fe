@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://fe-may23-bughunters.onrender.com/favourites';
+const BASE_URL = 'https://fe-may23-bughunters-mt0o.onrender.com/favourites';
 
 interface FavouriteQueryParams {
   userId: string;
