@@ -6,7 +6,7 @@ interface OrderDetails {
     category: string;
     priceRegular: number;
     priceDiscount: number;
-  }
+  };
 }
 
 interface OrderProducts {
@@ -19,7 +19,7 @@ export interface Order {
   userId: string;
   totalItems: number;
   totalPrice: number;
-  createdAt?: string;
+  createdAt: string;
   details?: OrderDetails[];
   products?: OrderProducts[];
 }

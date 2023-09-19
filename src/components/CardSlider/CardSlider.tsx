@@ -73,12 +73,9 @@ export const CardSlider: React.FC<Props> = ({ title, models, isLoading }) => {
 
         <div className="cardSlider__arrowBtns">
           <div
-            className={classNames(
-              'cardSlider__arrowBtn',
-              {
-                'cardSlider__arrowBtn--left--disabled': scrollPosition === 0,
-              },
-            )}
+            className={classNames('cardSlider__arrowBtn', {
+              'cardSlider__arrowBtn--left--disabled': scrollPosition === 0,
+            })}
             onClick={handleScrollLeft}
           >
             <ArrowLeft />

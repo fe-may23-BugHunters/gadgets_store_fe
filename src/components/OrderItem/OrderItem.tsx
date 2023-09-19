@@ -21,9 +21,7 @@ export const OrderItem: React.FC<Props> = ({ order }) => (
       </div>
       <div className="order__col">
         Date:
-        <span className="order__value">
-          {normalizedTime(order.createdAt)}
-        </span>
+        <span className="order__value">{normalizedTime(order.createdAt)}</span>
       </div>
       <div className="order__col">
         Total price:
@@ -46,8 +44,7 @@ export const OrderItem: React.FC<Props> = ({ order }) => (
             </div>
 
             <p className="order__productPrice">
-              {`$${product.priceDiscount
-                || product.priceRegular}`}
+              {`$${product.priceDiscount || product.priceRegular}`}
             </p>
           </NavLink>
         </li>

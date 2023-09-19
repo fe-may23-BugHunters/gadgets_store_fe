@@ -21,7 +21,7 @@ export const Loader: React.FC<Props> = ({ isLoading, children }) => {
           <div className="spinner__item" />
         </div>
       ) : (
-      <>{children}</>
+        <>{children}</>
       )}
     </>
   );

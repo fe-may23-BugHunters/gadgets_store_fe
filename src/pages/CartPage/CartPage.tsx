@@ -26,7 +26,7 @@ export const CartPage: React.FC = () => {
 
   const handleModalClick = () => {
     if (isAuthenticated) {
-      const products = cartProducts.map(product => {
+      const products = cartProducts.map((product) => {
         return {
           quantity: product.count,
           productId: product.id,
@@ -46,7 +46,7 @@ export const CartPage: React.FC = () => {
         .then(() => {
           clearCart();
         })
-        .catch(err => {
+        .catch((err) => {
           throw new Error(err);
         })
         .finally(() => setIsLoading(false));

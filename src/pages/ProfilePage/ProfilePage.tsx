@@ -22,10 +22,10 @@ export const ProfilePage: React.FC = () => {
     setIsLoading(true);
 
     getOrdersByUserId(user.sub)
-      .then(ordersFromServer => {
+      .then((ordersFromServer) => {
         setOrders(ordersFromServer);
       })
-      .catch(err => {
+      .catch((err) => {
         throw new Error(err);
       })
       .finally(() => setIsLoading(false));

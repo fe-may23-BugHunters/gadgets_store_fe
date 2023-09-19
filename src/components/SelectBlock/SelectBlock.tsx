@@ -77,7 +77,7 @@ export const SelectBlock: React.FC<Props> = ({
             <img
               className="selectBlock__icon"
               src={isOpen ? arrowUp : arrowDown}
-              alt={isOpen ? 'arrowUp' : 'arrowDown' }
+              alt={isOpen ? 'arrowUp' : 'arrowDown'}
             />
           </div>
         </div>
