@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { Categories, SortBy } from '../types/product';
 
-const BASE_URL = 'https://fe-may23-bughunters.onrender.com/products';
+const BASE_URL = 'https://fe-may23-bughunters-mt0o.onrender.com/products';
 
 export function getProductsByCategory(
   limit = 10,
